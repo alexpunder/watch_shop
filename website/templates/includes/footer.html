@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row footer-top">
             <div class="col-md-4">
-                <h2><a href="#" title="Home">Watchmaker</a></h2>
+                <h2><a href={% url 'main:homepage' %} title="Watchmaker">Watchmaker</a></h2>
                 <p class="italic">Часовой бутик, который Вам понравится.</p>
                 <div class="infomation">
                     <p><i class="fa fa-bookmark-o"></i>г. Вожский, ул. Неизвестная, д. 10</p>
@@ -32,9 +32,10 @@
             <div class="col-md-2">
                 <h3>О нас</h3>
                 <ul class="menu">
-                    <li><a href="#" title="О компании">О компании</a></li>
-                    <li><a href="#" title="Частые вопросы">Частые вопросы</a></li>
-                    <li><a href="#" title="Статьи">Статьи</a></li>
+                    <li><a href={% url 'util_pages:about' %} title="О компании">О компании</a></li>
+                    <li><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>
+                    <li><a href={% url 'util_pages:terms' %} title="Пользовательское соглашение">Пользовательское соглашение</a></li>
+                    <li><a href={% url 'util_pages:confidential' %} title="Конфиденциальность">Конфиденциальность</a></li>
                 </ul>
             </div>
         </div>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="col-md-4 col-sm-6 col-xs-6">
+    <div class="card border border-primary">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% bootstrap_button button_type="submit" content="Отправить" %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
