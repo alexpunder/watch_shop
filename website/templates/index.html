@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
+{% load django_bootstrap5 %}
+
 {% block content %}
-<div class="tp-banner-container color-home3 ver3">
-    <div class="tp-banner" >
+
+<div class="tp-banner-container ver6">
+    <div class="tp-banner">
         <ul>
-            <li data-transition="cube" data-slotamount="7" data-masterspeed="100000" >
-                <img src="static/images/Hermes-home3-bg-slideshow1.jpg"  alt="Futurelife-home2-slideshow"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="100000">
+                <img src="static/images/Hermes-home6-bg-slideshow1.jpg" alt="Futurelife-home2-slideshow" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
                 <div class="tp-caption large_bold_grey color-brown font-nel skewfromleft customout size-76"
                     data-x="1020"
                     data-y="190"
@@ -20,44 +23,45 @@
                 </div>
             </li>
         </ul>
+    </div>
     <div class="tp-bannertimer"></div>
 </div>
+
+<div class="banner-home6-top space-60">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-6">
+                <div class="card border border-primary">
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            {% bootstrap_button button_type="submit" content="Отправить" %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6">
+                <a class="hover-effect-images" href="#" title="Shoes">
+                    <img src="static/images/Hermes-home6-banner-top1.jpg" alt="Banner">
+                    <div class="text">
+                        <h3>Shoes</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6">
+                <a class="hover-effect-images" href="#" title="Shoes">
+                    <img src="static/images/Hermes-home6-banner-top1.jpg" alt="Banner">
+                    <div class="text">
+                        <h3>Shoes</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="banner-home2-top banner-home2-top-home4 space-80">
-    <div class="col-md-4 col-sm-4 first">
-        <div class="effect-v6 hover-effect-images">
-            <img src="static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Women</h3>
-                <p>amet consectetur adipiscing elit.</p>
-                <a href="#" title="view collection">view collection</a>
-            </div>
-        </div>
-    </div>
-    <!-- End col-md-3 -->
-    <div class="col-md-4 col-sm-4">
-        <div class="effect-v6 hover-effect-images">
-            <img src="static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Women</h3>
-                <p>amet consectetur adipiscing elit.</p>
-                <a href="#" title="view collection">view collection</a>
-            </div>
-        </div>
-    </div>
-    <!-- End col-md-6 -->
-    <div class="col-md-4 col-sm-4">
-        <div class="effect-v6 hover-effect-images">
-            <img src="static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Women</h3>
-                <p>amet consectetur adipiscing elit.</p>
-                <a href="#" title="view collection">view collection</a>
-            </div>
-        </div>
-    </div>
-    <!-- End col-md-3 -->
-</div>
+
+
 <div class="space-50 wrap-hermes-collection">
     <div class="container">
     <div class="hermes-collection hermes-collection-home4">
