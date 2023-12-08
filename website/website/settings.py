@@ -29,10 +29,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'phonenumber_field',
 
     'main.apps.MainConfig',
+    'shop.apps.ShopConfig',
     'util_pages.apps.UtilPagesConfig',
-    'phonenumber_field',
 ]
 
 MIDDLEWARE = [

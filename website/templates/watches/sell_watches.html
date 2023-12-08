@@ -3,15 +3,99 @@
 {% load django_bootstrap5 %}
 
 {% block content %}
-<div class="col-md-4 col-sm-6 col-xs-6">
-    <div class="card border border-primary">
-        <div class="card-body">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% bootstrap_form form %}
-                {% bootstrap_button button_type="submit" content="Отправить" %}
-            </form>
+
+<style>
+    .image-container {
+        position: relative;
+    }
+    
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%; /* Ширина текста в процентах от ширины изображения */
+        text-align: center;
+    }
+    
+    .text-overlay h3 {
+        color: #000;
+        margin: 0;
+        padding: 15px; /* Отступы вокруг текста */
+    }
+    .form-title {
+        margin-bottom: 25px; /* Измените значение на ваше усмотрение */
+    }
+</style>
+
+<div class="banner-home2-top banner-home2-top-home4 space-60">
+    <div class="col-md-3 col-sm-3">
+        <div class="effect-v6 hover-effect-images">
+            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+            <div class="action light-style">
+                <h3>Анонимность и правовая основа</h3>
+                <p>Гарантия чистоты сделки</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="effect-v6 hover-effect-images">
+            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+            <div class="action light-style">
+                <h3>Выезд оценщика</h3>
+                <p>В случае необходимости</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="effect-v6 hover-effect-images">
+            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+            <div class="action light-style">
+                <h3>Расчёт</h3>
+                <p>Удобным для Вас способом</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-3">
+        <div class="effect-v6 hover-effect-images">
+            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+            <div class="text-overlay">
+                <h3>Выплата</h3>
+                <p>До 90% рыночной стоимости</p>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="banner-home6-bottom space-60">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <a class="hover-effect-images-ver2" href="#" title="Banner">
+            <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
+            <div class="text">
+                <h3>Выплачиваем <span>до 90%</span></h3>
+                <h4>рыночной стоимости</h4>
+            </div>
+        </a>
+    </div>
+    <!-- End col-md-6   -->
+    <div class="col-md-6 col-sm-6 col-xs-6">
+        <a class="hover-effect-images-ver2" href="#" title="Banner">
+            <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
+            <div class="text">
+                <h3>Необходима оценка?</h3>
+                <p>Удобный расчёт и правовая сделка?</p>
+                <h4>Это к нам!</h4>
+            </div>
+        </a>
+    </div>
+    <!-- End col-md-6   -->
+</div>
+
+{% include "includes/extend_message_form.html" %}
+
 {% endblock content %}

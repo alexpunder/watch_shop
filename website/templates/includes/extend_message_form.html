@@ -1,0 +1,25 @@
+{% load django_bootstrap5 %}
+
+<div class="container space-60">
+    <div class="row">
+        <div class="col-md-12 col-sm-6 col-xs-6">
+            <div class="card border border-primary">
+                <div class="card-body">
+                    <h2 class="form-title">Оставить заявку</h2>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <input type="hidden" name="form_name" value="extend_form">
+                        {% for field in extend_form %}
+                            <div class="form-group mb-3{% if field.errors %} has-error{% endif %}">
+                                {% bootstrap_field field form_group_class='my_custom_class' %}
+                            </div>
+                        {% endfor %}
+
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

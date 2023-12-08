@@ -3,6 +3,7 @@ from phonenumber_field.formfields import PhoneNumberField
 
 
 YES_OR_NO = (
+    ('', ''),
     ('Да', 'Да'),
     ('Нет', 'Нет'),
 )
@@ -10,8 +11,15 @@ YES_OR_NO = (
 
 class MessageForm(forms.Form):
     phone_number = PhoneNumberField()
-    description = forms.CharField(label='Описание', max_length=255)
-    image = forms.ImageField(label='Изображение')
+    description = forms.CharField(
+        label='Описание',
+        max_length=255,
+        widget=forms.TextInput(attrs={'placeholder': 'Важная информация'})
+    )
+    image = forms.ImageField(
+        label='Изображение',
+        widget=forms.FileInput(attrs={'placeholder': 'Изображение часов'})
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -27,6 +35,9 @@ class ExtendMessageForm(forms.Form):
     )
     phone_number = PhoneNumberField()
     email = forms.EmailField(
+        widget=forms.EmailInput(
+            attrs={'class': 'form-control', 'placeholder': 'Почта'}
+        ),
         label='Электронная почта',
         required=False
     )
@@ -41,18 +52,27 @@ class ExtendMessageForm(forms.Form):
         required=False
     )
     year_of_purchase = forms.DateField(
-        label='Дата покупки',
-        widget=forms.SelectDateWidget(),
+        label='Год покупки',
+        input_formats=['%Y'],
+        widget=forms.DateInput(
+            attrs={'class': 'form-control'}
+        ),
         required=False
     )
     description = forms.CharField(
         max_length=255,
         label='Описание',
+        widget=forms.Textarea(
+            attrs={
+                'placeholder': 'Важная информация', 'style': 'height: 50px;'
+            }
+        ),
         required=False
     )
     packing_box = forms.ChoiceField(
         label='Имеютются ли упаковка и документы?',
         choices=YES_OR_NO,
+        widget=forms.Select(attrs={'class': 'form-control'}),
         required=False
     )
     image = forms.ImageField(

@@ -4,7 +4,36 @@
 
 {% block content %}
 
-<div class="tp-banner-container ver6">
+<style>
+    .image-container {
+        position: relative;
+    }
+    
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%; /* Ширина текста в процентах от ширины изображения */
+        text-align: center;
+    }
+    
+    .text-overlay h3 {
+        color: #000;
+        margin: 0;
+        padding: 15px; /* Отступы вокруг текста */
+    }
+    .form-title {
+        margin-bottom: 25px; /* Измените значение на ваше усмотрение */
+    }
+</style>
+
+<div class="tp-banner-container space-60 ver6">
     <div class="tp-banner">
         <ul>
             <li data-transition="fade" data-slotamount="7" data-masterspeed="100000">
@@ -19,7 +48,7 @@
                     data-endspeed="300"
                     data-endeasing="Power1.easeIn"
                     data-captionhidden="on"
-                    style="z-index: 9">WATCH
+                    style="z-index: 9">Часовой бутик
                 </div>
             </li>
         </ul>
@@ -30,30 +59,36 @@
 <div class="banner-home6-top space-60">
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-4 col-sm-6 col-xs-6">
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="card border border-primary">
                     <div class="card-body">
+                        <h2 class="form-title">Оставить заявку</h2>
                         <form method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            {% bootstrap_form form %}
-                            {% bootstrap_button button_type="submit" content="Отправить" %}
+                        {% csrf_token %}
+
+                            <input type="hidden" name="form_name" value="message_form">
+                            {% for field in form %}
+                                <div class="form-group mb-3{% if field.errors %} has-error{% endif %}">
+                                    {% bootstrap_field field form_group_class='my_custom_class' %}
+                                </div>
+                            {% endfor %}
+
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <a class="hover-effect-images" href="#" title="Shoes">
-                    <img src="static/images/Hermes-home6-banner-top1.jpg" alt="Banner">
-                    <div class="text">
-                        <h3>Shoes</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 col-xs-6">
-                <a class="hover-effect-images" href="#" title="Shoes">
-                    <img src="static/images/Hermes-home6-banner-top1.jpg" alt="Banner">
-                    <div class="text">
-                        <h3>Shoes</h3>
+            <div class="col-md-8 col-sm-8 col-xs-8">
+                <a class="hover-effect-images" href="#" title="Заявка">
+                    <div class="image-container">
+                        <img src="static/images/time04.jpg" alt="Banner">
+                        <div class="text-overlay">
+                            <h3>
+                                Скупка часов — основное направление деятельности нашей компании, которая специализируется на новых и б/у аксессуарах элитных брендов.
+                                Все этапы данного мероприятия выполняются квалифицированными специалистами, поэтому клиент может быть уверен в выгодности и справедливости сделки.
+                            </h3>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -69,9 +104,9 @@
             <a class="hover-effect-images-ver2" href="#" title="Banner">
                 <img src="static/images/Hermes-home4-banner2-top.jpg" alt="Banner">
                 <div class="text">
-                    <p>Your travel start here!</p>
-                    <h4>explore your</h4>
-                    <h3>world</h3>
+                    <p>Здесь можно приобрести часы</p>
+                    <h4>От знаменитых</h4>
+                    <h4>брендов</h4>
                 </div>
             </a>
         </div>
@@ -79,72 +114,9 @@
         <div class="col-md-6">
             <div class="slider-daily bottom-home1-title bottom-home1 hover-control-wrap">
             <div class="products">
-                <div class="item-inner">
-                    <div class="product">
-                        <a class="product-images" href="#" title="">
-                            <img class="primary_image" src="static/images/products/1.jpg" alt=""/>
-                            <img class="secondary_image" src="static/images/products/1.jpg" alt=""/>
-                        </a>
-                        <p class="product-title">Bouble Fabric Blazer</p>
-                        <p class="product-price">$ 69.90</p>
-                        <a class="add-to-cart" href="#">Add to Cart</a>
-                        <div class="action">
-                            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                            <a href="#" title="View"><i class="fa fa-compress"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-inner">
-                    <div class="product">
-                        <a class="product-images" href="#" title="">
-                            <img class="primary_image" src="static/images/products/1.jpg" alt=""/>
-                            <img class="secondary_image" src="static/images/products/1.jpg" alt=""/>
-                        </a>
-                        <p class="product-title">Bouble Fabric Blazer</p>
-                        <p class="product-price">$ 69.90</p>
-                        <a class="add-to-cart" href="#">Add to Cart</a>
-                        <div class="action">
-                            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                            <a href="#" title="View"><i class="fa fa-compress"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-inner">
-                    <div class="product sale">
-                        
-                        <a class="product-images" href="#" title="">
-                            <img class="primary_image" src="static/images/products/1.jpg" alt=""/>
-                            <img class="secondary_image" src="static/images/products/1.jpg" alt=""/>
-                        </a>
-                        <p class="product-title">Bouble Fabric Blazer</p>
-                        <div class="product-price">
-                            <span class="price">$ 69.90</span>
-                            <span class="price-old">$ 670.99</span>
-                            
-                        </div>
-                        <a class="add-to-cart" href="#">Add to Cart</a>
-                        <div class="action">
-                            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                            <a href="#" title="View"><i class="fa fa-compress"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item-inner">
-                    <div class="product ">
-                        <span class="new lable">New</span>
-                        <a class="product-images" href="#" title="">
-                            <img class="primary_image" src="static/images/products/1.jpg" alt=""/>
-                            <img class="secondary_image" src="static/images/products/1.jpg" alt=""/>
-                        </a>
-                        <p class="product-title">Bouble Fabric Blazer</p>
-                        <p class="product-price">$ 69.90</p>
-                        <a class="add-to-cart" href="#">Add to Cart</a>
-                        <div class="action">
-                            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-                            <a href="#" title="View"><i class="fa fa-compress"></i></a>
-                        </div>
-                    </div>
-                </div>
+                {% include "includes/product_card.html" %}
+                {% include "includes/product_card.html" %}
+                {% include "includes/product_card.html" %}                
             </div>
             <!-- End product-tab-content products-->     
             </div>
@@ -186,4 +158,5 @@
     <div class="bottom-home1 bottom-home4 footer-bt bottom-home1-title">
 </div>  
 </div>
+{% include "includes/extend_message_form.html" %}
 {% endblock %}
