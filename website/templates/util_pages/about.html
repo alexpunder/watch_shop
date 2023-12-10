@@ -1,1 +1,55 @@
 {% extends "base.html" %}
+
+{% block content %}
+<div class="main-content space-60 about-us">
+    <div class="banner-page-top banner-page-top-ver2">
+        <img src="/static/images/Hermes-banner-page-about.jpg" alt="Banner-Blog-Page">
+        <div class="text">
+            <h4><span>О нас</span></h4>
+            <h3>Watchman</h3>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="space-padding-tb-60 row">
+            <div class="title-text space-80">
+                <h3>Watchman</h3>
+                <p>Часовой бутик, который Вам понравится.</p>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30 about-icon">
+                    <div class="fbox-icon">
+                        <a href="{% url 'util_pages:contacts' %}"><i class="icons fa fa-map-o"></i></a>
+                    </div>
+                    <div class="fbox-body">                            
+                        <h4>Мы здесь!</h4>
+                        <p>Если не получается нас отыскать, нажми на карту.</p>
+                    </div>                              
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30 about-icon">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icons fa fa-cogs"></i></a>
+                    </div>
+                    <div class="fbox-body">                            
+                        <h4>Работаем как часы</h4>
+                        <p>И гордимся этим.</p>
+                    </div>                              
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30 about-icon">
+                    <div class="fbox-icon">
+                        <a href="#"><i class="icons fa fa-life-ring"></i></a>
+                    </div>
+                    <div class="fbox-body">      
+                        <h4>Мы всегда на связи</h4>
+                        <p>Доступны звонки, мессенджеры и почта.</p>
+                    </div>                              
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

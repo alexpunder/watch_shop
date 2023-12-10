@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-content">
+    <div class="bg-default no-space-row page-404">
+        <div class="container">
+            <div class="col-md-12">
+                <div class="title-text title-about space-padding-tb-30">
+                    <h1 class="space-10">404</h1>
+                    <h3 class="space-50">страница не найдена</h3>
+                    <p class="space-50">Страница, которую вы ищете, была перемещена или больше не существует. Если хотите, вы можете вернуться на нашу домашнюю страницу.</p>
+                    <p><a class="btn link-button space-20" href="{% url 'main:homepage' %}" title="На главную">На главную</a></p>                                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+from .forms import ContactForm
+
 
 def page_forbidden(request, exception):
     return render(request, 'util_pages/403.html', status=403)
@@ -19,8 +21,18 @@ class About(TemplateView):
     template_name = 'util_pages/about.html'
 
 
-class Contacts(TemplateView):
+def contacts(request):
     template_name = 'util_pages/contacts.html'
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            pass
+    else:
+        form = ContactForm()
+    context = {
+        'form': form
+    }
+    return render(request, template_name, context)
 
 
 class Confidential(TemplateView):

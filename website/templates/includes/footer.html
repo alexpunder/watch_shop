@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <h3>Услуги</h3>
+                <a href={% url 'main:homepage' %}><h3>Услуги</h3></a>
                 <ul class="menu">
                     <li><a href="#" title="Скупка брендовых часов">Скупка брендовых часов</a></li>
                     <li><a href="#" title="Скупка бриллиантов">Скупка бриллиантов</a></li>
@@ -20,7 +20,7 @@
                 </ul>
             </div>
             <div class="col-md-3">
-                <h3>Продать часы</h3>
+                <a href={% url 'main:sell_watches' %}><h3>Продавть часы</h3></a>
                 <ul class="menu">
                     <li><a href="#" title="Швейцарские часы">Швейцарские часы</a></li>
                     <li><a href="#" title="Золотые часы">Золотые часы</a></li>
@@ -30,7 +30,7 @@
                 </ul>
             </div>                        
             <div class="col-md-2">
-                <h3>О нас</h3>
+                <a href={% url 'util_pages:about' %}><h3>О нас</h3></a>
                 <ul class="menu">
                     <li><a href={% url 'util_pages:about' %} title="О компании">О компании</a></li>
                     <li><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>

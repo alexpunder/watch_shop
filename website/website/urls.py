@@ -11,7 +11,6 @@ handler500 = 'util_pages.views.server_error'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
-    # path('', include('shop.urls')),
     path('', include('util_pages.urls')),
 ]
 

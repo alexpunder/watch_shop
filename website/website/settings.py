@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'main.apps.MainConfig',
-    'shop.apps.ShopConfig',
     'util_pages.apps.UtilPagesConfig',
 ]
 
@@ -130,4 +129,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'

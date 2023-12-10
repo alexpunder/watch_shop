@@ -1,1 +1,65 @@
 {% extends "base.html" %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="main-content">
+    <div class="container">
+        <div class="space-padding-tb-60 row">
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30">
+                    <div class="fbox-icon">
+                        <i class="icons fa fa-map-marker"></i>
+                    </div>
+                    <div class="fbox-body">                            
+                        <h4>Наш адрес</h4>
+                        <p>г. Волжский, ул. Неизвестная, д. 10</p>
+                    </div>                              
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30">
+                    <div class="fbox-icon">
+                        <i class="icons fa fa-envelope-o"></i>
+                    </div>
+                    <div class="fbox-body">
+                        <h4>Наша почта</h4>
+                        <p>watchman@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-box feature-box-v3 feature-box-center space-30">
+                    <div class="fbox-icon">
+                        <i class="icons fa fa-phone"></i>
+                    </div>
+                    <div class="fbox-body">
+                        <h4>Наш телефон</h4>
+                        <p>+7 (999) 888-77-66</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-content space-50">
+        <div id="googleMap" class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1205.2681009977907!2d44.79286687526775!3d48.78746486300832!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41054c569f342b53%3A0x91228ff46e130ef7!2z0JLQvtC70LbQsNC90LrQsCwg0LPQsNGA0LDQttC90L4t0YHRgtGA0L7QuNGC0LXQu9GM0L3Ri9C5INC60L7QvtC_0LXRgNCw0YLQuNCy!5e0!3m2!1sru!2sru!4v1690713174337!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-6 space-padding-50 contact-form contact-form-bg">
+            <h3 class="space-50">Остались вопросы? Напиши нам!</h3>
+
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group col-md-12{% if field.errors %} has-error{% endif %}">
+                        {% bootstrap_field field form_group_class='my_custom_class' %}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn link-button">Отправить</button>
+            </form>
+
+        </div>
+    </div>
+    <!-- End contact content -->
+</div>
+{% endblock content %}

@@ -1,31 +1,24 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import MessageForm, ExtendMessageForm
+from .bot_sending_messages import message
 
 
 def homepage(request):
     if request.method == 'POST':
-        form_name = request.POST.get('form_name')
-
-        if form_name == 'message_form':
-            form = MessageForm(request.POST, request.FILES)
-            extend_form = ExtendMessageForm()
-            if form.is_valid():
-                pass
-
-        elif form_name == 'extend_form':
-            form = MessageForm()
-            extend_form = ExtendMessageForm(request.POST, request.FILES)
-            if extend_form.is_valid():
-                pass
+        form = MessageForm(request.POST, request.FILES)
+        if form.is_valid():
+            phone = form.cleaned_data['phone_number']
+            text = form.cleaned_data['description']
+            image = form.cleaned_data['image']
+            message(phone, text, image)
+            return redirect('main:homepage')
     else:
         form = MessageForm()
-        extend_form = ExtendMessageForm()
 
     return render(
         request, template_name='index.html', context={
-            'form': form,
-            'extend_form': extend_form
+            'form': form
         }
     )
 

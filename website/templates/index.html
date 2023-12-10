@@ -16,21 +16,26 @@
     
     .text-overlay {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 75%; /* Ширина текста в процентах от ширины изображения */
-        text-align: center;
+        top: 10px; /* Отступ сверху */
+        left: 10px; /* Отступ слева */
+        display: inline-block;
+        text-align: left; /* Выравнивание текста по левому краю */
+        background-color: #ba933e; /* Прозрачный фон */
+        padding: 15px; /* Отступы вокруг текста */
     }
     
     .text-overlay h3 {
-        color: #000;
+        color: #fff; /* Цвет текста */
         margin: 0;
-        padding: 15px; /* Отступы вокруг текста */
+    }
+    .text-overlay h5 {
+        color: #fff; /* Цвет текста */
+        margin: 0;
     }
     .form-title {
-        margin-bottom: 25px; /* Измените значение на ваше усмотрение */
+        margin-bottom: 25px;
     }
+
 </style>
 
 <div class="tp-banner-container space-60 ver6">
@@ -56,39 +61,52 @@
     <div class="tp-bannertimer"></div>
 </div>
 
-<div class="banner-home6-top space-60">
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <div class="card border border-primary">
-                    <div class="card-body">
-                        <h2 class="form-title">Оставить заявку</h2>
-                        <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
+<div class="container mt-4 space-60">
+    <div class="row">
+        <div class="col-md-4 space-padding-30 contact-form contact-form-bg">
+            <h3 class="space-35">Оставить заявку</h3>
 
-                            <input type="hidden" name="form_name" value="message_form">
-                            {% for field in form %}
-                                <div class="form-group mb-3{% if field.errors %} has-error{% endif %}">
-                                    {% bootstrap_field field form_group_class='my_custom_class' %}
-                                </div>
-                            {% endfor %}
-
-                            <button type="submit" class="btn btn-primary">Отправить</button>
-
-                        </form>
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group col-md-12{% if field.errors %} has-error{% endif %}">
+                        {% bootstrap_field field form_group_class='my_custom_class' %}
                     </div>
-                </div>
+                {% endfor %}
+                <button type="submit" class="btn link-button">Отправить</button>
+            </form>
+
+        </div>
+        <div class="container">
+            <div class="col-md-4 col-sm-4 col-xs-6 space-40">
+                <a class="hover-effect-images" href="#" title="Предложим самую высокую цену">
+                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
+                    <div class="text-overlay btn link-button">
+                        <h5>Выгодно</h5>
+                    </div>
+                </a>
             </div>
-            <div class="col-md-8 col-sm-8 col-xs-8">
-                <a class="hover-effect-images" href="#" title="Заявка">
-                    <div class="image-container">
-                        <img src="static/images/time04.jpg" alt="Banner">
-                        <div class="text-overlay">
-                            <h3>
-                                Скупка часов — основное направление деятельности нашей компании, которая специализируется на новых и б/у аксессуарах элитных брендов.
-                                Все этапы данного мероприятия выполняются квалифицированными специалистами, поэтому клиент может быть уверен в выгодности и справедливости сделки.
-                            </h3>
-                        </div>
+            <div class="col-md-4 col-sm-4 col-xs-6 space-40">
+                <a class="hover-effect-images" href="#" title="Бесплатная оценка по фото">
+                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
+                    <div class="text-overlay btn link-button">
+                        <h5>Удобно</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <a class="hover-effect-images" href="#" title="Выкуп и расчет в день обращения">
+                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
+                    <div class="text-overlay btn link-button">
+                        <h5>Быстро</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-6">
+                <a class="hover-effect-images" href="#" title="Юридическое сопровождение сделки">
+                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
+                    <div class="text-overlay btn link-button">
+                        <h5>Безопасно</h5>
                     </div>
                 </a>
             </div>
@@ -96,8 +114,7 @@
     </div>
 </div>
 
-
-<div class="space-50 wrap-hermes-collection">
+<div class="wrap-hermes-collection space-60">
     <div class="container">
     <div class="hermes-collection hermes-collection-home4">
         <div class="col-md-6">
@@ -105,7 +122,7 @@
                 <img src="static/images/Hermes-home4-banner2-top.jpg" alt="Banner">
                 <div class="text">
                     <p>Здесь можно приобрести часы</p>
-                    <h4>От знаменитых</h4>
+                    <h4>от знаменитых</h4>
                     <h4>брендов</h4>
                 </div>
             </a>
@@ -127,36 +144,33 @@
     <!-- End hermes collecttion -->
     </div>
 </div>
-<div class="main-content">
+
+<div class="main-content space-20">
     <div class="container">
-        <!-- End banner -->
-        <!--End Feature Product -->
-        <div class="banner-home4-bottom space-80">
+        <div class="banner-home4-bottom">
             <div class="col-md-6">
                 <a class="hover-effect-images" href="#" title="Banner">
-                    <img src="static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
+                    <img src="/static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
                     <div class="text">
-                        <h3>Sling bags</h3>
-                        <p>Top trands</p>
-                        <p>at wholasale price.</p>
+                        <h3>Еще один</h3>
+                        <p>рекламный</p>
+                        <p>баннер.</p>
                     </div>
                 </a>
             </div>
             <div class="col-md-6">
                 <a class="hover-effect-images" href="#" title="Banner">
-                    <img src="static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
+                    <img src="/static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
                     <div class="text">
-                        <h3>2016</h3>
-                        <h5>Creative design</h5>
-                        <h4>leather jacket</h4>
-                        <p>collection</p>
+                        <h3>2023</h3>
+                        <h5>Год</h5>
+                        <h4>начала создания</h4>
                     </div>
                 </a>
             </div>
         </div>
-        <!-- End banner bottom home4 -->
     <div class="bottom-home1 bottom-home4 footer-bt bottom-home1-title">
 </div>  
 </div>
-{% include "includes/extend_message_form.html" %}
+
 {% endblock %}

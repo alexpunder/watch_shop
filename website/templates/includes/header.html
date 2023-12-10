@@ -1,30 +1,41 @@
 <header id="header" class="header-v6 color-home2">
+    <div id="topbar" class="space-20">
+        <div class="container">
+            <div class="topbar-left">
+                 <div class="dropdown">
+                      <a class="btn active">г. Вожский, ул. Неизвестная, д. 10</a>
+                </div>
+                <div class="dropdown">
+                      <a class="btn active">watchmaker@ya.com</a>
+                </div>
+            </div>
+            <!-- End topBar-left -->
+            <div class="topbar-right">
+                <div class="sign-in">
+                    <a href="#" title="Номер 1">+7 (999) 888-77-66</a>
+                    <span>/</span>
+                    <a href="#" title="Номер 2"></i>+7 (111) 222-33-44</a>
+                </div>
+                <!-- End SignIn -->
+            </div>
+            <!-- End topbar-right -->
+            <div class="social">
+                <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" title="sky"><i class="fa fa-skype"></i></a>
+                <a href="#" title="vibo"><i class="fa fa-vine"></i></a>
+                <a href="#" title="facebook"><i class="fa fa-facebook"></i></a>
+            </div>
+            <!-- End Social -->
+        </div>
+        <!-- End container -->
+    </div>
     <div class="header-top">
         <div class="container">
             <div class="inner-container">
-                <div class="col-md-12" style="display: flex; justify-content: space-between;">
-                    <div style="text-align: left;">
-                        <div style="margin-bottom: 10px;">
-                            <p> г. Вожский, ул. Неизвестная, д. 10 </p>
-                        </div>
-                        <div style="margin-top: 10px;">
-                            <p> watchmaker@ya.com</p>
-                        </div>
-                    </div>
+                <div class="col-md-12 space-20">
                     <div class="logo"><a href={% url 'main:homepage' %} title="Watchman">Watchman</a></div>
-                    <div style="text-align: left;">
-                        <div style="margin-bottom: 40px;">
-                            <p class="icon-menu-mobile black"><i class="fa fa-bars" ></i></p>
-                            <p class="hotline"><i class="fa fa-phone"></i> +7 (999) 777-55-33</p>
-                        </div>
-                        <div style="margin-top: 40px;">
-                            <a href="#" title="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" title="sky"><i class="fa fa-skype"></i></a>
-                            <a href="#" title="vibo"><i class="fa fa-vine"></i></a>
-                        </div>
-                    </div>
                 </div>
-                <nav class="mega-menu menu-v6 color-home6">
+                <nav class="mega-menu menu-v6 color-home6 space-10">
                     <ul class="nav navbar-nav" id="navbar">
                         <li class="level1 active dropdown"><a href="{% url 'main:homepage' %}" title="Веруться на главную страницу">Главная</a>
                         </li>
@@ -88,7 +99,6 @@
                             <ul class="menu-level-1 dropdown-menu">
                                 <li class="level2"><a href={% url 'util_pages:about' %} title="Компания">Компания</a></li>
                                 <li class="level2"><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>
-                                {% comment %} <li class="level2"><a href="checkout-confirm.html" title="Статьи">Статьи</a></li> {% endcomment %}
                             </ul>
                         </li>
                         <li class="level1 dropdown"><a href={% url 'util_pages:contacts' %} title="Контакты">Контакты</a>

@@ -16,6 +16,11 @@
                             </div>
                         {% endfor %}
 
+                        <div class="form-check space-20">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                            <label class="form-check-label" for="exampleCheck1">Я согласен с <a href="{% url 'util_pages:confidential' %}" title="Персональные данные">политикой конфиденциальности</a> сайта</label>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Отправить</button>
                     </form>
                 </div>

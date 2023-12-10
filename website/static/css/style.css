@@ -8463,17 +8463,6 @@ p.center {
   left: 70px;
 }
 
-.banner-home4-bottom .col-md-6:last-child .text p {
-  display: inline-block;
-  background: url("../images/Hermes-home4-bg-banner-bottom.png") no-repeat;
-  width: 135px;
-  height: 24px;
-  color: #010a0d;
-  font-size: 13px;
-  padding-left: 20px;
-  text-transform: uppercase;
-}
-
 .banner-home4-bottom .col-md-6:last-child h3 {
   font-size: 60px;
   color: #ba933e;
