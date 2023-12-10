@@ -12,6 +12,7 @@ def homepage(request):
             text = form.cleaned_data['description']
             image = form.cleaned_data['image']
             message(phone, text, image)
+            form.save()
             return redirect('main:homepage')
     else:
         form = MessageForm()

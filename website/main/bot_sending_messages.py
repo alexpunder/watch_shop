@@ -4,7 +4,7 @@ from telegram import Bot
 
 
 TELEGRAM_TOKEN = '6727372454:AAHFXntTCuHnO5Vl7cUKfUf69O9ctFYf-k0'
-CHANAL_ID = '-1002109369857'  # 1414299754 (мой ID)
+CHANAL_ID = '-1002109369857'
 
 
 def message(phone, text, image):
