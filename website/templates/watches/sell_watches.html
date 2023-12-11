@@ -16,7 +16,7 @@
     
     .text-overlay {
         position: absolute;
-        top: 50%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 75%; /* Ширина текста в процентах от ширины изображения */
@@ -31,71 +31,94 @@
     .form-title {
         margin-bottom: 25px; /* Измените значение на ваше усмотрение */
     }
+
+    .banner-home2-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 25%;
+        box-sizing: border-box; /* Учтите внутренние отступы и границы в расчете ширины */
+        margin-right: 10px;
+        padding: 0; /* Установите внутренние отступы на 0 */
+        margin: 0; /* Установите внешние отступы на 0 */
+        border: 0; /* Убедитесь, что границы отсутствуют */
+    }
+    .text-overlay h3 {
+        color: #fff; /* Цвет текста */
+        margin: 0;
+    }
 </style>
 
-<div class="banner-home2-top banner-home2-top-home4 space-60">
-    <div class="col-md-3 col-sm-3">
-        <div class="effect-v6 hover-effect-images">
-            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Анонимность и правовая основа</h3>
-                <p>Гарантия чистоты сделки</p>
+<div class="main-content">
+    <div class="container">
+        <div class="space-10">
+            <div class="col-md-3 col-sm-3">
+                <div class="effect-v6 hover-effect-images">
+                    <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+                    <div class="text-overlay">
+                        <h3>Правовая основа</h3>
+                        <p>Гарантия чистоты сделки</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-3">
-        <div class="effect-v6 hover-effect-images">
-            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Выезд оценщика</h3>
-                <p>В случае необходимости</p>
+            <div class="col-md-3 col-sm-3">
+                <div class="effect-v6 hover-effect-images">
+                    <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+                    <div class="text-overlay">
+                        <h3>Выезд оценщика</h3>
+                        <p>В случае необходимости</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-3">
-        <div class="effect-v6 hover-effect-images">
-            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="action light-style">
-                <h3>Расчёт</h3>
-                <p>Удобным для Вас способом</p>
+            <div class="col-md-3 col-sm-3">
+                <div class="effect-v6 hover-effect-images">
+                    <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+                    <div class="text-overlay">
+                        <h3>Расчёт</h3>
+                        <p>Удобным для Вас способом</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3 col-sm-3">
-        <div class="effect-v6 hover-effect-images">
-            <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
-            <div class="text-overlay">
-                <h3>Выплата</h3>
-                <p>До 90% рыночной стоимости</p>
+            <div class="col-md-3 col-sm-3">
+                <div class="effect-v6 hover-effect-images">
+                    <img src="/static/images/Hermes-home4-banner-top1.jpg" alt="Banner">
+                    <div class="text-overlay">
+                        <h3>Выплата</h3>
+                        <p>До 90% рыночной стоимости</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="banner-home6-bottom space-60">
-    <div class="col-md-6 col-sm-6 col-xs-6">
-        <a class="hover-effect-images-ver2" href="#" title="Banner">
-            <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
-            <div class="text">
-                <h3>Выплачиваем <span>до 90%</span></h3>
-                <h4>рыночной стоимости</h4>
+<div class="main-content space-20">
+    <div class="container">
+        <div class="banner-home6-bottom space-20">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <a class="hover-effect-images-ver2" href="#" title="Banner">
+                    <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
+                    <div class="text">
+                        <h3>Выплачиваем <span>до 90%</span></h3>
+                        <h4>рыночной стоимости</h4>
+                    </div>
+                </a>
             </div>
-        </a>
-    </div>
-    <!-- End col-md-6   -->
-    <div class="col-md-6 col-sm-6 col-xs-6">
-        <a class="hover-effect-images-ver2" href="#" title="Banner">
-            <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
-            <div class="text">
-                <h3>Необходима оценка?</h3>
-                <p>Удобный расчёт и правовая сделка?</p>
-                <h4>Это к нам!</h4>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <a class="hover-effect-images-ver2" href="#" title="Banner">
+                    <img src="/static/images/Hermes-home6-banner-bottom1.jpg" alt="Banner">
+                    <div class="text">
+                        <h3>Необходима оценка?</h3>
+                        <p>Удобный расчёт и правовая сделка?</p>
+                        <h4>Это к нам!</h4>
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
     </div>
-    <!-- End col-md-6   -->
 </div>
-
 {% include "includes/extend_message_form.html" %}
 
 {% endblock content %}

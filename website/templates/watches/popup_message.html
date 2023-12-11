@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tp-banner-container space-60 ver6">
+   <div class="tp-banner">
+       <ul>
+           <li data-transition="fade" data-slotamount="7" data-masterspeed="100000">
+               <img src="/static/images/Hermes-home6-bg-slideshow1.jpg" alt="Futurelife-home2-slideshow" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+               <div class="tp-caption large_bold_grey color-brown font-nel skewfromleft customout size-76"
+                   data-x="1020"
+                   data-y="190"
+                   data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                   data-speed="800"
+                   data-start="1600"
+                   data-easing="Power4.easeOut"
+                   data-endspeed="300"
+                   data-endeasing="Power1.easeIn"
+                   data-captionhidden="on"
+                   style="z-index: 9">Часовой бутик
+               </div>
+           </li>
+       </ul>
+   </div>
+   <div class="tp-bannertimer"></div>
+</div>
+
+<div class="main-content space-20">
+   <div class="container">
+       <div class="banner-home4-bottom">
+           <div class="col-md-6">
+               <a class="hover-effect-images" href="#" title="Banner">
+                   <img src="/static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
+                   <div class="text">
+                       <h3>Еще один</h3>
+                       <p>рекламный</p>
+                       <p>баннер.</p>
+                   </div>
+               </a>
+           </div>
+           <div class="col-md-6">
+               <a class="hover-effect-images" href="#" title="Banner">
+                   <img src="/static/images/Hermes-home4-banner-bottom.jpg" alt="Banner">
+                   <div class="text">
+                       <h3>2023</h3>
+                       <h5>Год</h5>
+                       <h4>начала создания</h4>
+                   </div>
+               </a>
+           </div>
+       </div>
+   <div class="bottom-home1 bottom-home4 footer-bt bottom-home1-title">
+</div>
+
+<div class="popup-content">
+    <div class="popup-content-wrapper">
+       <div class="popup-container">
+          <div class="row">
+             <div class="col-md-offset-6 col-sm-offset-6">
+                <div class="popup-content-text">
+                   <h3>Ваше обращение зарегистрировано!</h3>
+                   <p>Благодарим за оказанное доверие. В ближайшее время с Вами свяжется наш сотрудник. Ожидание будет не долгим</p>
+                </div>
+                <div class="newletter-form">
+                   <div class="widget_wysija_cont shortcode_wysija">
+                      <div class="wysija-msg ajax" id="msg-form-wysija-shortcode57bd06004b338-1"></div>
+                      <a class="btn link-button" href={% url 'main:homepage' %}>Отлично!</a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

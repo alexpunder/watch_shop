@@ -1,21 +1,10 @@
 from django.db import models
-
+from django.utils import timezone
+from django.core.validators import MinValueValidator, MaxValueValidator
 from phonenumber_field.modelfields import PhoneNumberField
 
 from website.settings import BASE_DIR
-
-
-YES_OR_NO = (
-    ('Нет', 'Нет'),
-    ('Да', 'Да'),
-)
-
-PROCESSED = (
-    ('Только поступил', 'Только поступил'),
-    ('В работе', 'В работе'),
-    ('Завершено', 'Завершено'),
-    ('Клиент отказался', 'Клиент отказался'),
-)
+from website.constants import YES_OR_NO, PROCESSED
 
 
 class Base(models.Model):
@@ -55,7 +44,8 @@ class Message(Base):
         verbose_name_plural = 'Обращения с малой формы сайта'
 
     def __str__(self):
-        return f'Обращение клиента от {self.pub_date}'
+        date = self.pub_date.strftime('%d.%m.%Y %H:%M')
+        return f'Обращение клиента от {date}'
 
 
 class ExtendMessage(Base):
@@ -78,17 +68,26 @@ class ExtendMessage(Base):
         blank=True,
         null=True
     )
-    year_of_purchase = models.DateField(
+    year_of_purchase = models.SmallIntegerField(
         'Год покупки',
         blank=True,
-        null=True
+        null=True,
+        validators=[
+            MinValueValidator(
+                1900,
+                message='Год не может быть меньше 1900-ого.'
+            ),
+            MaxValueValidator(
+                timezone.now().year + 1,
+                message='Год не может быть больше текущего.'
+            )
+        ]
     )
     packing_box = models.CharField(
         'Имеются ли упаковка и документы?',
         max_length=255,
         choices=YES_OR_NO,
-        blank=True,
-        null=True
+        default='Нет',
     )
 
     class Meta:
@@ -97,4 +96,5 @@ class ExtendMessage(Base):
         verbose_name_plural = 'Обращения с большой формы сайта'
 
     def __str__(self):
-        return f'Обращение клиента от {self.pub_date}'
+        date = self.pub_date.strftime('%d.%m.%Y %H:%M')
+        return f'Обращение клиента от {date}'
