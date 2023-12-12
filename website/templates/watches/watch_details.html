@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+    .characteristics {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .characteristic-item {
+        margin-bottom: 5px;
+    }
+
+    .characteristic-label {
+        font-weight: bold;
+        display: inline-block;
+        width: 100px; /* Уменьшите ширину лейбла по вашему усмотрению */
+        font-size: 12px; /* Уменьшите размер шрифта по вашему усмотрению */
+    }
+
+    .characteristic-value {
+        display: inline-block;
+        width: 100px; /* Уменьшите ширину лейбла по вашему усмотрению */
+        font-size: 12px; /* Уменьшите размер шрифта по вашему усмотрению */
+    }
+</style>
+
+<div class="main-content space-40">
+    <div class="container">     
+        <div class="product-details-content">
+            <div class="col-md-6 col-sm-6">
+                <div class="product-img-box">
+                    <a id="image-view" title="Product Image">
+                        <img id="image" src="{% static 'images/products/1.jpg' %}" alt="Product"/>
+                    </a>
+                    <div class="product-thumb">
+                        <ul class="thumb-content">
+                            <li class="thumb"><a href="{% static 'images/products/1.jpg' %}" title="thumb product view1" onclick="swap(this);return false;"><img src="{% static 'images/products/1.jpg' %}" alt="thumb product1"/></a></li>
+                            <li class="thumb"><a href="{% static 'images/products/1.jpg' %}" title="thumb product view1" onclick="swap(this);return false;"><img src="{% static 'images/products/1.jpg' %}" alt="thumb product1"/></a></li>
+                            <li class="thumb"><a href="{% static 'images/products/1.jpg' %}" title="thumb product view1" onclick="swap(this);return false;"><img src="{% static 'images/products/1.jpg' %}" alt="thumb product1"/></a></li>
+                            <li class="thumb"><a href="{% static 'images/products/1.jpg' %}" title="thumb product view1" onclick="swap(this);return false;"><img src="{% static 'images/products/1.jpg' %}" alt="thumb product1"/></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="product-name space-30">
+                    <h1>Swatch RED SHORE</h1>
+                    <p>
+                        Эти часы с матово-черным силиконовым ремешком с разноцветным принтом, который идеально сочетается с матово-черным циферблатом, 
+                        созданы, чтобы отличаться от других.
+                    </p>
+                </div>
+
+                <div class="wrap-price space-30 space-padding-tb-30">
+                    <p class="price">10000 Р.</p>
+                </div>
+
+                <div class="options">
+                    <div class="hoz-tab-container space-padding-tb-40">
+                        <ul class="tabs">
+                            <li class="item" rel="description">Описание</li>
+                            <li class="item" rel="characteristics">Характеристики</li>
+                        </ul>
+                        <div class="tab-container">
+                            <div id="description" class="tab-content">
+                                <p>
+                                    Эти часы с матово-черным силиконовым ремешком с разноцветным принтом, который идеально сочетается с матово-черным циферблатом, 
+                                    созданы, чтобы отличаться от других.
+                                </p>
+                            </div>
+                            <div id="characteristics" class="tab-content">
+                                <div class="col-md-6">
+                                    <div class="space-10">
+                                        <div>
+                                            <ul class="characteristics">
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Название часов:</span>
+                                                    <span class="characteristic-value">RED SHORE</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Артикул/модель:</span>
+                                                    <span class="characteristic-value">GB333</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Механизм:</span>
+                                                    <span class="characteristic-value">Кварцевые</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Водостойкие:</span>
+                                                    <span class="characteristic-value">3 бар</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Материал ремешка:</span>
+                                                    <span class="characteristic-value">Силикон</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="space-10">
+                                        <div>
+                                            <ul class="characteristics">
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Материал застёжки:</span>
+                                                    <span class="characteristic-value">Пластик</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Пряжка ремешка:</span>
+                                                    <span class="characteristic-value">Пряжка</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Материал корпуса:</span>
+                                                    <span class="characteristic-value">Пластик</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Цвет:</span>
+                                                    <span class="characteristic-value">Чёрный</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Форма корпуса:</span>
+                                                    <span class="characteristic-value">Круглая</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products">
+                    <div class="product product-details">
+                        <a href="#" class="add-to-cart">В корзину</a>
+                        <div class="action">
+                            <a title="В избранное" href="#"><i class="fa fa-heart-o"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>   
+    </div>  
+</div>
+
+<div class="container space-40">
+    <div class="col-12">
+        <div>
+            <div class="title-product">
+                <h3>Похожие товары</h3>
+            </div>
+            <div class="feature-product color-home2">
+                <div class="product-tab-content products">
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                    {% include "includes/product_card.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

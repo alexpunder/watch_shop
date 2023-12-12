@@ -3,7 +3,6 @@
         <div class="row footer-top">
             <div class="col-md-4">
                 <h2><a href={% url 'main:homepage' %} title="Watchmaker">Watchmaker</a></h2>
-                <p class="italic">Часовой бутик, который Вам понравится.</p>
                 <div class="infomation">
                     <p><i class="fa fa-bookmark-o"></i>г. Вожский, ул. Неизвестная, д. 10</p>
                     <p><i class="fa fa-phone-square"></i>+7-999-777-55-55</p>
@@ -11,31 +10,21 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <a href={% url 'main:homepage' %}><h3>Услуги</h3></a>
+                <a href={% url 'main:services' %}><h3>Услуги</h3></a>
                 <ul class="menu">
-                    <li><a title="Скупка брендовых часов">Скупка брендовых часов</a></li>
-                    <li><a title="Скупка бриллиантов">Скупка бриллиантов</a></li>
-                    <li><a title="Обмен швейцарских часов">Обмен швейцарских часов</a></li>
-                    <li><a title="Оценка швейцарских часов">Оценка швейцарских часов</a></li>
+                    <li><a href={% url 'util_pages:confidential' %} title="Конфиденциальность">Конфиденциальность</a></li>
                 </ul>
             </div>
             <div class="col-md-3">
-                <a href={% url 'main:sell_watches' %}><h3>Продавть часы</h3></a>
+                <a href={% url 'main:sell_watches' %}><h3>Продать часы</h3></a>
                 <ul class="menu">
-                    <li><a title="Швейцарские часы">Швейцарские часы</a></li>
-                    <li><a title="Золотые часы">Золотые часы</a></li>
-                    <li><a title="Наручные часы">Наручные часы</a></li>
-                    <li><a title="Скупка элитных часов">Скупка элитных часов</a></li>
-                    <li><a title="С бриллиантами">С бриллиантами</a></li>
+                    <li><a href={% url 'util_pages:terms' %} title="Пользовательское соглашение">Пользовательское соглашение</a></li>
                 </ul>
             </div>                        
             <div class="col-md-2">
                 <a href={% url 'util_pages:about' %}><h3>О нас</h3></a>
                 <ul class="menu">
-                    <li><a href={% url 'util_pages:about' %} title="О компании">О компании</a></li>
                     <li><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>
-                    <li><a href={% url 'util_pages:terms' %} title="Пользовательское соглашение">Пользовательское соглашение</a></li>
-                    <li><a href={% url 'util_pages:confidential' %} title="Конфиденциальность">Конфиденциальность</a></li>
                 </ul>
             </div>
         </div>

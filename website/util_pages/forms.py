@@ -20,7 +20,7 @@ class ContactForm(forms.Form):
         label='Описание',
         max_length=255,
         widget=forms.TextInput(
-            attrs={'placeholder': 'Чтобы знать, как обращаться'}
+            attrs={'placeholder': 'Чтобы знать, о чем говорить'}
         )
     )
 

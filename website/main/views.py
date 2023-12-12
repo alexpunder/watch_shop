@@ -50,6 +50,11 @@ def sell_watches(request):
     return render(request, template_name, context)
 
 
+def buy_watch(request):
+    template_name = 'watches/watch_details.html'
+    return render(request, template_name)
+
+
 def send_message(request):
     """
     Представление для отображения страницы 'О нас'.

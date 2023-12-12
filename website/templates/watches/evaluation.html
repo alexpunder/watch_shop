@@ -1,7 +1,30 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
-<h1>Оценка часов</h1>
+<div class="tp-banner-container space-60 ver6">
+    <div class="tp-banner">
+        <ul>
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="100000">
+                <img src="{% static 'images/Hermes-home6-bg-slideshow1.jpg' %}" alt="Futurelife-home2-slideshow" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                <div class="tp-caption large_bold_grey color-brown font-nel skewfromleft customout size-76"
+                    data-x="1020"
+                    data-y="190"
+                    data-customout="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                    data-speed="800"
+                    data-start="1600"
+                    data-easing="Power4.easeOut"
+                    data-endspeed="300"
+                    data-endeasing="Power1.easeIn"
+                    data-captionhidden="on"
+                    style="z-index: 9">Оценка часов
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="tp-bannertimer"></div>
+</div>
 
 {% endblock %}
