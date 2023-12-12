@@ -49,17 +49,13 @@
             </div>
             <div class="col-md-6 col-sm-6">
                 <div class="product-name space-30">
-                    <h1>Swatch RED SHORE</h1>
-                    <p>
-                        Эти часы с матово-черным силиконовым ремешком с разноцветным принтом, который идеально сочетается с матово-черным циферблатом, 
-                        созданы, чтобы отличаться от других.
-                    </p>
+                    <h1>{{ product.brand.name }}</h1>
+                    <h2>{{ product.name }}</h2>
+                    <p class="price">GB333</p>
                 </div>
-
                 <div class="wrap-price space-30 space-padding-tb-30">
                     <p class="price">10000 Р.</p>
                 </div>
-
                 <div class="options">
                     <div class="hoz-tab-container space-padding-tb-40">
                         <ul class="tabs">
@@ -69,8 +65,7 @@
                         <div class="tab-container">
                             <div id="description" class="tab-content">
                                 <p>
-                                    Эти часы с матово-черным силиконовым ремешком с разноцветным принтом, который идеально сочетается с матово-черным циферблатом, 
-                                    созданы, чтобы отличаться от других.
+                                    {{ product.description }}
                                 </p>
                             </div>
                             <div id="characteristics" class="tab-content">
@@ -79,24 +74,25 @@
                                         <div>
                                             <ul class="characteristics">
                                                 <li class="characteristic-item">
+                                                    <span class="characteristic-label">Бренд:</span>
+                                                    <span class="characteristic-value">{{ product.brand.name }}</span>
+                                                </li>
+                                                <li class="characteristic-item">
                                                     <span class="characteristic-label">Название часов:</span>
-                                                    <span class="characteristic-value">RED SHORE</span>
+                                                    <span class="characteristic-value">{{ product.name }}</span>
                                                 </li>
                                                 <li class="characteristic-item">
                                                     <span class="characteristic-label">Артикул/модель:</span>
-                                                    <span class="characteristic-value">GB333</span>
+                                                    <span class="characteristic-value">{{ product.article }}</span>
+                                                </li>
+                                                
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Страна:</span>
+                                                    <span class="characteristic-value">{{ product.country.name }}</span>
                                                 </li>
                                                 <li class="characteristic-item">
                                                     <span class="characteristic-label">Механизм:</span>
-                                                    <span class="characteristic-value">Кварцевые</span>
-                                                </li>
-                                                <li class="characteristic-item">
-                                                    <span class="characteristic-label">Водостойкие:</span>
-                                                    <span class="characteristic-value">3 бар</span>
-                                                </li>
-                                                <li class="characteristic-item">
-                                                    <span class="characteristic-label">Материал ремешка:</span>
-                                                    <span class="characteristic-value">Силикон</span>
+                                                    <span class="characteristic-value">{{ product.mechanism.name }}</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -107,24 +103,24 @@
                                         <div>
                                             <ul class="characteristics">
                                                 <li class="characteristic-item">
-                                                    <span class="characteristic-label">Материал застёжки:</span>
-                                                    <span class="characteristic-value">Пластик</span>
-                                                </li>
-                                                <li class="characteristic-item">
-                                                    <span class="characteristic-label">Пряжка ремешка:</span>
-                                                    <span class="characteristic-value">Пряжка</span>
+                                                    <span class="characteristic-label">Водозащита:</span>
+                                                    <span class="characteristic-value">{{ product.water_resistance.name }}</span>
                                                 </li>
                                                 <li class="characteristic-item">
                                                     <span class="characteristic-label">Материал корпуса:</span>
-                                                    <span class="characteristic-value">Пластик</span>
+                                                    <span class="characteristic-value">{{ product.body_material.name }}</span>
+                                                </li>
+                                                <li class="characteristic-item">
+                                                    <span class="characteristic-label">Браслет:</span>
+                                                    <span class="characteristic-value">{{ product.circlet.name }}</span>
                                                 </li>
                                                 <li class="characteristic-item">
                                                     <span class="characteristic-label">Цвет:</span>
-                                                    <span class="characteristic-value">Чёрный</span>
+                                                    <span class="characteristic-value">{{ product.color.name }}</span>
                                                 </li>
                                                 <li class="characteristic-item">
                                                     <span class="characteristic-label">Форма корпуса:</span>
-                                                    <span class="characteristic-value">Круглая</span>
+                                                    <span class="characteristic-value">{{ product.case_shape.name }}</span>
                                                 </li>
                                             </ul>
                                         </div>
@@ -134,7 +130,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="products">
                     <div class="product product-details">
                         <a href="#" class="add-to-cart">В корзину</a>
@@ -147,7 +142,6 @@
         </div>   
     </div>  
 </div>
-
 <div class="container space-40">
     <div class="col-12">
         <div>

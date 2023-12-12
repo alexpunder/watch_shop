@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import MessageForm, ExtendMessageForm
 from .bot_sending_messages import message, extend_message
+from shop.models import Watch
 
 
 def homepage(request):
@@ -10,6 +11,7 @@ def homepage(request):
     отправки сообщения ботом в телеграмм-канал; сохранение обращения
     пользователя в БД.
     """
+    template_name = 'index.html'
     if request.method == 'POST':
         form = MessageForm(request.POST, request.FILES)
         if form.is_valid():
@@ -22,11 +24,19 @@ def homepage(request):
     else:
         form = MessageForm()
 
-    return render(
-        request, template_name='index.html', context={
-            'form': form
-        }
-    )
+    products = Watch.objects.filter(is_on_main=True, is_published=True)
+
+    return render(request, template_name, context={
+        'form': form,
+        'products': products
+    })
+
+
+def watch_detail(request, pk):
+    template_name = 'watches/watch_details.html'
+    product = get_object_or_404(Watch, pk=pk)
+    context = {'product': product}
+    return render(request, template_name, context)
 
 
 def sell_watches(request):

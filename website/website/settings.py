@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'phonenumber_field',
 
     'main.apps.MainConfig',
+    'shop.apps.ShopConfig',
     'util_pages.apps.UtilPagesConfig',
 ]
 

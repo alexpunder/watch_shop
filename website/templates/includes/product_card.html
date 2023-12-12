@@ -2,11 +2,11 @@
 
 <div class="item-inner">
     <div class="product">
-        <a class="product-images" href="{% url 'main:buy_watch' %}" title="">
+        <a class="product-images" href="{{ product.get_absolute_url }}" title="">
             <img class="primary_image" src="{% static 'images/products/1.jpg' %}" alt=""/>
             <img class="secondary_image" src="{% static 'images/products/1.jpg' %}" alt=""/>
         </a>
-        <p class="product-title">SWATCH WATCH</p>
+        <p class="product-title">{{ product.name }}</p>
         <p class="product-price">10000 р.</p>
         <a class="add-to-cart" href="#">В корзину</a>
         <div class="action">
