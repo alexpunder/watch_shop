@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 
 from .forms import MessageForm, ExtendMessageForm
 from .bot_sending_messages import message, extend_message
@@ -32,13 +32,6 @@ def homepage(request):
     })
 
 
-def watch_detail(request, pk):
-    template_name = 'watches/watch_details.html'
-    product = get_object_or_404(Watch, pk=pk)
-    context = {'product': product}
-    return render(request, template_name, context)
-
-
 def sell_watches(request):
     """
     Представление для отображения страницы с продажей пользователем часов.
@@ -58,11 +51,6 @@ def sell_watches(request):
         'extend_form': extend_form
     }
     return render(request, template_name, context)
-
-
-def buy_watch(request):
-    template_name = 'watches/watch_details.html'
-    return render(request, template_name)
 
 
 def send_message(request):

@@ -35,14 +35,14 @@
             <div class="col-md-6 col-sm-6">
                 <div class="product-img-box">
                     <a id="image-view" title="Product Image">
-                        <img id="image" src="{{ product.images.first.image.url }}" alt="Product"/>
+                        <img id="image" src="" alt="Product"/>
                     </a>
                     <div class="product-thumb">
                         {% for image in product.images.all %}
                             <ul class="thumb-content">
                                 <li class="thumb">
                                     <a href="{{ image.image.url }}" title="thumb product view1" onclick="changeMainImage('{{ image.image.url }}');return false;">
-                                        <img src="{{ image.image.url }}" alt="thumb product1"/>
+                                        <img src="{{ image.image.url }}" alt="thumb product1" style="max-width: 870px; max-height: 1110px;">
                                     </a>
                                 </li>
                             </ul>
@@ -56,7 +56,7 @@
                     <h2>{{ product.name }}</h2>
                     <p class="price">GB333</p>
                 </div>
-                <div class="wrap-price space-30 space-padding-tb-30">
+                <div class="wrap-price">
                     <p class="price">{{ product.price }} Р.</p>
                 </div>
                 <div class="options">
@@ -65,7 +65,7 @@
                             <li class="item" rel="description">Описание</li>
                             <li class="item" rel="characteristics">Характеристики</li>
                         </ul>
-                        <div class="tab-container">
+                        <div class="tab-container space-50">
                             <div id="description" class="tab-content">
                                 <p>
                                     {{ product.description }}
@@ -131,16 +131,17 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="product product-details">
-                        <a href="#" class="add-to-cart">В корзину</a>
-                        <div class="action">
-                            <a title="В избранное" href="#"><i class="fa fa-heart-o"></i></a>
+                        <div class="products">
+                            <div class="product product-details">
+                                <a href="#" class="add-to-cart">В корзину</a>
+                                <div class="action">
+                                    <a title="В избранное" href="#"><i class="fa fa-heart-o"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </div>  
         </div>   
     </div>  

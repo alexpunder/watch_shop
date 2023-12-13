@@ -1,3 +1,5 @@
+{% load static %}
+
 <header id="header" class="header-v6 color-home2">
     <div id="topbar" class="space-20">
         <div class="container">
@@ -35,10 +37,10 @@
                         </li>
                         <li class="level1 dropdown"><a href="{% url 'main:sell_watches' %}" title="Продать часы">Продать часы</a>
                         </li>
-                        {% comment %} <li class="level1 dropdown"><a href="#" title="Удобно">Купить часы</a>
+                        <li class="level1 dropdown"><a href="{% url 'shop:watch_list' %}" title="Удобно">Купить часы</a>
                             <div class="sub-menu dropdown-menu">
                                 <ul class="menu-level-1">
-                                    <li class="level2"><a href="#">Мужские</a>
+                                    <li class="level2"><a href="#">Все часы</a>
                                         <ul class="menu-level-2">
                                             <li class="level3"><a href="#" title="Страна">Страна</a></li>
                                             <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
@@ -47,7 +49,7 @@
                                             <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li>
                                         </ul>
                                     </li>
-                                    <li class="level2"><a href="#">Женские</a>
+                                    <li class="level2"><a href="#">Популярное</a>
                                         <ul class="menu-level-2">
                                             <li class="level3"><a href="#" title="Страна">Страна</a></li>
                                             <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
@@ -58,20 +60,23 @@
                                     </li>
                                     <li class="level2"><a href="#">Аксессуары</a>
                                         <ul class="menu-level-2">
+                                            <li class="level3"><a href="#" title="Страна">Страна</a></li>
+                                            <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
+                                            <li class="level3"><a href="#" title="Стиль">Стиль</a></li>
+                                            <li class="level3"><a href="#" title="Популярное">Популярное</a></li>
+                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li>
                                         </ul>
                                     </li>
                                     <li class="level2">
-                                        <img src="static/images/Futurelife-sub-menu1.jpg" alt="Sub-Menu" />
+                                        <img src="{% static 'images/Futurelife-sub-menu1.jpg' %}" alt="Sub-Menu" />
                                     </li>
                                     <li class="level2">
-                                        <img src="static/images/Futurelife-sub-menu1.jpg" alt="Sub-Menu" />
+                                        <img src="{% static 'images/Futurelife-sub-menu1.jpg' %}" alt="Sub-Menu" />
                                     </li>
                                 </ul>
                                 <div class="bottom-sub-menu">
-                                <p>Мы следим за новостями индустрии часов и пополняем ассортимент актуальными новинками. К нам приходят снова и снова, чтобы приобрести самые лучшие часы и аксессуары!</p>
-                                </div>
                             </div>
-                        </li> {% endcomment %}
+                        </li>
                         <li class="level1 dropdown"><a href="{% url 'main:evaluation' %}" title="Page">Оценка часов</a>
                         </li>
                         <li class="level1 dropdown"><a href="{% url 'main:services' %}" title="Узнай о них всё">Услуги</a>

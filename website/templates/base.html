@@ -26,9 +26,13 @@
     <script type="text/javascript" src="{% static 'js/jquery.elevatezoom.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/store.js' %}"></script>
     <script>
+        window.onload = function() {
+            var defaultImageUrl = "{% if product.images.all %}{{ product.images.all.0.image.url }}{% endif %}";
+            document.getElementById('image').src = defaultImageUrl;
+        };
+
         function changeMainImage(newImageUrl) {
-            // Заменить источник изображения в основном блоке
-            $("#image").attr("src", newImageUrl);
+        document.getElementById('image').src = newImageUrl;
         }
     </script>
 </html>

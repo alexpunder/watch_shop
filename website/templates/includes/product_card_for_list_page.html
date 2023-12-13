@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="item-inner">
+    <div class="product">
+        <a class="product-images" href="{{ watch.get_absolute_url }}" title="">
+            {% for image in watch.images.all|slice:":2" %}
+                <img class="{% if forloop.first %}primary_image{% else %}secondary_image{% endif %}" src="{{ image.image.url }}" alt="" style="max-width: 870px; max-height: 1110px;">
+            {% endfor %}
+        </a>
+        <p class="product-title">{{ watch.brand }} {{ watch.name}}</p>
+        <p class="description">{{ watch.description }}</p>
+        <p class="product-price">{{ watch.price }} Р.</p>
+        <a class="add-to-cart" href="#">В корзину</a>
+        <div class="action">
+            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
+            <a href="#" title="View"><i class="fa fa-compress"></i></a>
+        </div>
+    </div>
+</div>

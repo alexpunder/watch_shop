@@ -4,7 +4,7 @@
     <div class="product">
         <a class="product-images" href="{{ product.get_absolute_url }}" title="">
             {% for image in product.images.all|slice:":2" %}
-                <img class="{% if forloop.first %}primary_image{% else %}secondary_image{% endif %}" src="{{ image.image.url }}" alt=""/>
+                <img class="{% if forloop.first %}primary_image{% else %}secondary_image{% endif %}" src="{{ image.image.url }}" alt="" style="max-width: 870px; max-height: 1110px;">
             {% endfor %}
         </a>
         <p class="product-title">{{ product.brand }} {{ product.name }}</p>

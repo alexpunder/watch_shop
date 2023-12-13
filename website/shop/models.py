@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+from django_resized import ResizedImageField
+
 from website.constants import (
     MARK_CHOIСE, COUNTRY_CHOIСE, MECHANISM_CHOIСE, RESISTANCE_CHOIСE,
     BODY_MATERIAL_CHOIСE, CIRCLET_CHOIСE, COLOR_CHOIСE, CASE_SHAPE_CHOIСE,
@@ -107,7 +109,7 @@ class Watch(models.Model):
 
     def get_absolute_url(self):
         return reverse(
-            'main:watch_detail', kwargs={'pk': self.pk}
+            'shop:watch_detail', kwargs={'pk': self.pk}
         )
 
 
@@ -316,7 +318,7 @@ class WatchImage(models.Model):
         related_name='images',
         verbose_name='Часы',
     )
-    image = models.ImageField(
+    image = ResizedImageField(
         'Изображение',
         upload_to='watches_images',
     )
