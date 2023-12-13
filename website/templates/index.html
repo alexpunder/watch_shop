@@ -129,11 +129,11 @@
             </div>
             <div class="col-md-6">
                 <div class="slider-daily bottom-home1-title bottom-home1 hover-control-wrap">
-                    {% for product in products %}
-                        <div class="products">
-                            {% include "includes/product_card.html" %}               
-                        </div>
-                    {% endfor %}
+                    <div class="products">
+                        {% for product in products %}
+                            {% include "includes/product_card.html" %}
+                        {% endfor %}           
+                    </div>
                 </div>
             </div>
         </div>

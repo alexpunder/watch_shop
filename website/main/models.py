@@ -40,8 +40,8 @@ class Message(Base):
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = 'Обращение с малой формы сайта'
-        verbose_name_plural = 'Обращения с малой формы сайта'
+        verbose_name = 'Малая форма'
+        verbose_name_plural = 'Малая форма'
 
     def __str__(self):
         date = self.pub_date.strftime('%d.%m.%Y %H:%M')
@@ -92,8 +92,8 @@ class ExtendMessage(Base):
 
     class Meta:
         ordering = ['-pub_date']
-        verbose_name = 'Обращение с большой формы сайта'
-        verbose_name_plural = 'Обращения с большой формы сайта'
+        verbose_name = 'Расширенная форма'
+        verbose_name_plural = 'Расширенная форма'
 
     def __str__(self):
         date = self.pub_date.strftime('%d.%m.%Y %H:%M')

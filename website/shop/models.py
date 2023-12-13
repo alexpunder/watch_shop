@@ -1,10 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 from website.constants import (
     MARK_CHOIСE, COUNTRY_CHOIСE, MECHANISM_CHOIСE, RESISTANCE_CHOIСE,
     BODY_MATERIAL_CHOIСE, CIRCLET_CHOIСE, COLOR_CHOIСE, CASE_SHAPE_CHOIСE,
-    GENDER_CHOIСE
+    GENDER_CHOIСE, MIN_PRICE, MAX_PRICE
 )
 
 
@@ -84,10 +85,16 @@ class Watch(models.Model):
         on_delete=models.CASCADE,
         verbose_name='Пол'
     )
-    image = models.ForeignKey(
-        'Image',
-        on_delete=models.CASCADE,
-        verbose_name='Изображения'
+    price = models.PositiveIntegerField(
+        'Цена',
+        validators=[
+            MinValueValidator(
+                MIN_PRICE, message=f'Цена не может быть меньше {MIN_PRICE}'
+            ),
+            MaxValueValidator(
+                MAX_PRICE, message=f'Цена не может быть больше {MAX_PRICE}'
+            )
+        ]
     )
 
     class Meta:
@@ -302,9 +309,16 @@ class Gender(models.Model):
         return self.name
 
 
-class Image(models.Model):
+class WatchImage(models.Model):
+    product = models.ForeignKey(
+        'Watch',
+        on_delete=models.CASCADE,
+        related_name='images',
+        verbose_name='Часы',
+    )
     image = models.ImageField(
-        upload_to='wathes/'
+        'Изображение',
+        upload_to='watches_images',
     )
 
     class Meta:

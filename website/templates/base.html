@@ -25,4 +25,10 @@
     <script type="text/javascript" src="{% static 'js/jquery.themepunch.plugins.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.elevatezoom.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/store.js' %}"></script>
+    <script>
+        function changeMainImage(newImageUrl) {
+            // Заменить источник изображения в основном блоке
+            $("#image").attr("src", newImageUrl);
+        }
+    </script>
 </html>

@@ -2,13 +2,18 @@ from django.contrib import admin
 
 from .models import (
     Watch, Brand, Country, Mechanism, WaterResistance, BodyMaterial, Circlet,
-    Color, CaseShape, Gender, Image
+    Color, CaseShape, Gender, WatchImage
 )
+
+
+class ProductImageInline(admin.TabularInline):
+    model = WatchImage
+    extra = 1
 
 
 @admin.register(Watch)
 class WatchAdmin(admin.ModelAdmin):
-    pass
+    inlines = [ProductImageInline]
 
 
 @admin.register(Brand)
@@ -56,6 +61,6 @@ class GenderAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Image)
-class ImageAdmin(admin.ModelAdmin):
+@admin.register(WatchImage)
+class WatchImageAdmin(admin.ModelAdmin):
     pass
