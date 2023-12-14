@@ -10,10 +10,10 @@
         <p class="product-title">{{ watch.brand }} {{ watch.name}}</p>
         <p class="description">{{ watch.description }}</p>
         <p class="product-price">{{ watch.price }} Р.</p>
-        <a class="add-to-cart" href="#">В корзину</a>
-        <div class="action">
-            <a href="#" title="Like"><i class="fa fa-heart-o"></i></a>
-            <a href="#" title="View"><i class="fa fa-compress"></i></a>
-        </div>
+        <form action="{% url 'shop:cart_add' pk=watch.pk %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input class="add-to-cart" type="submit" value="В корзину">
+        </form>
     </div>
 </div>

@@ -1,5 +1,11 @@
 {% load static %}
 
+<style>
+    .cart {
+        padding-left: 60px; /* Выберите нужное вам значение отступа */
+    }
+</style>
+
 <header id="header" class="header-v6 color-home2">
     <div id="topbar" class="space-20">
         <div class="container">
@@ -89,6 +95,39 @@
                         </li>
                         <li class="level1 dropdown"><a href={% url 'util_pages:contacts' %} title="Контакты">Контакты</a>
                         </li>
+                        <div class="cart dropdown">
+                            <a class="icon-cart" href="{% url "shop:cart_detail" %}" title="Корзина">
+                                <i class="fa fa-shopping-basket"></i>
+                                {% if cart %}
+                                    {% with total_items=cart|length %}
+                                        <span class="cart-count">{{ total_items }}</span>
+                                    {% endwith %}
+                                {% else %}
+                                    <span class="cart-count">0</span>
+                                {% endif %}
+                            </a>
+                            {% if cart %}
+                                <div class="cart-list dropdown-menu">
+                                    {% for item in cart %}
+                                        {% with product=item.watch %}
+                                        <ul class="list">
+                                            <li>
+                                                {% if product.images.all %}
+                                                    <a href="{% url 'shop:watch_detail' pk=product.id %}" title="" class="cart-product-image"><img src="{{ product.images.all.0.image.url }}" alt="Product"></a>
+                                                {% endif %}
+                                                <div class="text">
+                                                    <p class="product-name">{{ product.brand.name }} {{ product.name }}</p>
+                                                    <p class="product-price">{{ product.price }} Р.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        {% endwith %}
+                                    {% endfor %}
+                                    <p class="total"><span>Итог:</span> {{ cart.get_total_price }} Р.</p>
+                                    <a class="checkout" href="#" title="">Оформить</a>
+                                </div>
+                            {% endif %}
+                        </div>
                     </ul>
                 </nav>
             </div>  

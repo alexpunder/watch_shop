@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import MessageForm, ExtendMessageForm
 from .bot_sending_messages import message, extend_message
 from shop.models import Watch
+from shop.forms import AddToCart
 
 
 def homepage(request):
@@ -25,10 +26,12 @@ def homepage(request):
         form = MessageForm()
 
     products = Watch.objects.filter(is_on_main=True, is_published=True)
+    cart_product_form = AddToCart()
 
     return render(request, template_name, context={
         'form': form,
-        'products': products
+        'products': products,
+        'cart_product_form': cart_product_form
     })
 
 

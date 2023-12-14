@@ -8,9 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = 'django-insecure-ozoc&vwziiyq8gk7d+hn@i2@)wf-43&!$^a=acb-*o6g78!w!1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = [
@@ -18,6 +20,10 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
+# ключи сессии пользователя
+
+CART_SESSION_ID = 'cart'
+WISH_LIST_SESSION_ID = 'wish_list'
 
 # Application definition
 
@@ -61,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'shop.context_processors.cart'
             ],
         },
     },

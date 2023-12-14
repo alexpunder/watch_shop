@@ -9,9 +9,10 @@
         </a>
         <p class="product-title">{{ product.brand }} {{ product.name }}</p>
         <p class="product-price">{{ product.price }} р.</p>
-        <a class="add-to-cart" href="#">В корзину</a>
-        <div class="action">
-            <a href="#" title="В избранное"><i class="fa fa-heart-o"></i></a>
-        </div>
+        <form class="add-to-cart" action="{% url 'shop:cart_add' pk=product.pk %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="В корзину">
+        </form>
     </div>
 </div>

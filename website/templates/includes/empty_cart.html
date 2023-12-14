@@ -1,0 +1,15 @@
+<div class="account">
+    <div class="col-md-6 space-80">
+        <p class="space-40">К сожалению, в Ваше корзине покупок пока пусто... Можете вернуться на главную или в каталог с часами, используя кнопки навигации ниже. Спасибо!</p>
+        <div class="contact-form check-out acc-login">
+           <form class="form-horizontal">
+                 <div class="form-group">            
+                    <a class="btn link-button link-button-v2" href="{% url 'main:homepage' %}" title="На главную">На главную</a>
+                </div>
+                <div class="form-group">            
+                    <a class="btn link-button link-button-v2" href="{% url 'shop:watch_list' %}" title="В каталог">В каталог</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
