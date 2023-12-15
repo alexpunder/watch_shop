@@ -3,6 +3,14 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+    .col-md-3.cart-totals {
+        float: right;
+    }
+</style>
+
+
 <div class="main-content shopping-cart"> 
     <div class="container">            
       <ul class="breadcrumb">
@@ -48,7 +56,7 @@
             </tbody>
         </table>
         <div class="shipping-total">
-            <div class="col-md-3 cart-totals text-price justify-content-end">
+            <div class="col-md-3 cart-totals text-price">
                 <div class="title-product">
                     <h3>Общий итог</h3>
                 </div>
@@ -58,6 +66,8 @@
                 <a class="btn link-button" href="#" title="Proceed to checkout">Оформить</a>
             </div>
         </div>
+    </div>
+    
       {% else %}
         {% include "includes/empty_cart.html" %}
       {% endif %}

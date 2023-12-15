@@ -12,7 +12,7 @@ PRODUCTS_ON_PAGE = 2
 
 
 def watch_list(request):
-    template_name = 'watches/watch_list.html'
+    template_name = 'watches/watches_with_sidebar.html'
     watches = Watch.objects.filter(
         is_published=True, is_available=True
     )

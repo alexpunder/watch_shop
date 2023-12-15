@@ -4,6 +4,14 @@
     .cart {
         padding-left: 60px; /* Выберите нужное вам значение отступа */
     }
+    .dropdown {
+        transition: visibility 0.3s ease-in-out;
+    }
+    
+    /* Если у вас используется класс "active" для активного пункта, вы можете также добавить анимацию для этого состояния */
+    .dropdown.active {
+        visibility: visible;
+    }
 </style>
 
 <header id="header" class="header-v6 color-home2">
@@ -25,9 +33,9 @@
                 </div>
             </div>
             <div class="social">
-                <a href="#" title="twitter"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-                <a href="#" title="sky"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                <a href="#" title="vibo"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://t.me/+_brgVJeEvnMyNDRi" title="telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                <a href="#" title="whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>
@@ -46,35 +54,41 @@
                         <li class="level1 dropdown"><a href="{% url 'shop:watch_list' %}" title="Удобно">Купить часы</a>
                             <div class="sub-menu dropdown-menu">
                                 <ul class="menu-level-1">
-                                    <li class="level2"><a href="#">Все часы</a>
+                                    <li class="level2"><a href="{% url 'shop:watch_list' %}">Все часы</a>
                                         <ul class="menu-level-2">
-                                            <li class="level3"><a href="#" title="Страна">Страна</a></li>
+                                            {% comment %} <li class="level3"><a href="#" title="Страна">Страна</a></li>
                                             <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
                                             <li class="level3"><a href="#" title="Стиль">Стиль</a></li>
                                             <li class="level3"><a href="#" title="Популярное">Популярное</a></li>
-                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li>
+                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li> {% endcomment %}
                                         </ul>
                                     </li>
                                     <li class="level2"><a href="#">Популярное</a>
                                         <ul class="menu-level-2">
-                                            <li class="level3"><a href="#" title="Страна">Страна</a></li>
+                                            {% comment %} <li class="level3"><a href="#" title="Страна">Страна</a></li>
                                             <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
                                             <li class="level3"><a href="#" title="Стиль">Стиль</a></li>
                                             <li class="level3"><a href="#" title="Популярное">Популярное</a></li>
-                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li>
+                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li> {% endcomment %}
+                                        </ul>
+                                    </li>
+                                    <li class="level2"><a href="#">Акция</a>
+                                        <ul class="menu-level-2">
+                                            {% comment %} <li class="level3"><a href="#" title="Страна">Страна</a></li>
+                                            <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
+                                            <li class="level3"><a href="#" title="Стиль">Стиль</a></li>
+                                            <li class="level3"><a href="#" title="Популярное">Популярное</a></li>
+                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li> {% endcomment %}
                                         </ul>
                                     </li>
                                     <li class="level2"><a href="#">Аксессуары</a>
                                         <ul class="menu-level-2">
-                                            <li class="level3"><a href="#" title="Страна">Страна</a></li>
+                                            {% comment %} <li class="level3"><a href="#" title="Страна">Страна</a></li>
                                             <li class="level3"><a href="#" title="Корпус">Корпус</a></li>
                                             <li class="level3"><a href="#" title="Стиль">Стиль</a></li>
                                             <li class="level3"><a href="#" title="Популярное">Популярное</a></li>
-                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li>
+                                            <li class="level3"><a href="#" title="Популярные бренды">Популярные бренды</a></li> {% endcomment %}
                                         </ul>
-                                    </li>
-                                    <li class="level2">
-                                        <img src="{% static 'images/Futurelife-sub-menu1.jpg' %}" alt="Sub-Menu" />
                                     </li>
                                     <li class="level2">
                                         <img src="{% static 'images/Futurelife-sub-menu1.jpg' %}" alt="Sub-Menu" />

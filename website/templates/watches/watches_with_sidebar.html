@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="main-content space-80"> 
+    <div class="container">            
+      <ul class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Table</li>
+      </ul>   
+      <div id="secondary" class="widget-area col-xs-12 col-md-3">
+        <aside class="widget">
+            <h3 class="widget-title">Категории</h3>
+        </aside>
+
+        <aside class="widget widget_product_categories">
+            <ul class="product-categories">
+                <li><a href="#" title="Пол">Пол</a>
+                    <ul class="children">
+                        <li><a href="#" title="Мужские">Мужские</a></li>
+                        <li><a href="#" title="Женские">Женские</a></li>
+                        <li><a href="#" title="Детские">Детские</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Бренд">Бренд</a>
+                    <ul>
+                        <li><a href="#" title="Swatch">Swatch</a></li>
+                        <li><a href="#" title="Tissot">Tissot</a></li>
+                        <li><a href="#" title="Rolex">Rolex</a></li>
+                        <li><a href="#" title="Зенит">Зенит</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Страна">Страна</a>
+                    <ul>
+                        <li><a href="#" title="Швейцария">Швейцария</a></li>
+                        <li><a href="#" title="Япония">Япония</a></li>
+                        <li><a href="#" title="Россия">Россия</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Механизм">Механизм</a>
+                    <ul>
+                        <li><a href="#" title="Кварцевые">Кварцевые</a></li>
+                        <li><a href="#" title="Механические">Механические</a></li>
+                        <li><a href="#" title="Смарт-часы">Смарт-часы</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Цвет">Цвет</a>
+                    <ul>
+                        <li><a href="#" title="Черный">Черный</a></li>
+                        <li><a href="#" title="Серебристый">Серебристый</a></li>
+                        <li><a href="#" title="Бронзовый">Бронзовый</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+      </div>
+
+      <div id="primary" class="col-xs-12 col-md-9">
+
+              <div class="ordering">
+                  <a href="#" title="show sidebar">Выбрать отображение:</a>
+                  <span class="list"></span>
+                  <span class="col active"></span>
+              </div>
+
+              <div class="products grid_full grid_sidebar">
+                {% for watch in page_obj %}
+                    {% include "includes/product_card_for_list_page.html" %}
+                {% endfor %}
+              </div>
+
+              <div class="pagination-container">
+                {% include "includes/pagination.html" %}
+              </div>
+
+          </div>
+
+        </div>           
+
+    </div>
+
+{% endblock  %}

@@ -13,7 +13,7 @@
         <form action="{% url 'shop:cart_add' pk=watch.pk %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input class="add-to-cart" type="submit" value="В корзину">
+            <input class="btn btn-primary" type="submit" value="В корзину">
         </form>
     </div>
 </div>
