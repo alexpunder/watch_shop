@@ -78,7 +78,18 @@ def evaluation(request):
     Представление для отображения страницы 'Оценка часов'.
     """
     template_name = 'watches/evaluation.html'
-    return render(request, template_name)
+    if request.method == 'POST':
+        extend_form = ExtendMessageForm(request.POST, request.FILES)
+        if extend_form.is_valid():
+            extend_message(**extend_form.cleaned_data)
+            extend_form.save()
+            return redirect('main:popup_message')
+    else:
+        extend_form = ExtendMessageForm()
+    context = {
+        'extend_form': extend_form
+    }
+    return render(request, template_name, context)
 
 
 def services(request):
@@ -86,7 +97,21 @@ def services(request):
     Представление для отображения страницы 'Услуги'.
     """
     template_name = 'watches/services.html'
-    return render(request, template_name)
+    if request.method == 'POST':
+        extend_form = ExtendMessageForm(request.POST, request.FILES)
+        if extend_form.is_valid():
+            extend_message(**extend_form.cleaned_data)
+            extend_form.save()
+            return redirect('main:popup_message')
+    else:
+        extend_form = ExtendMessageForm()
+    context = {
+        'extend_form': extend_form
+    }
+    context = {
+        'extend_form': extend_form
+    }
+    return render(request, template_name, context)
 
 
 def popup_message(request):

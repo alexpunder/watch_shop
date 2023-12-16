@@ -7,7 +7,7 @@ from django_resized import ResizedImageField
 from website.constants import (
     MARK_CHOIСE, COUNTRY_CHOIСE, MECHANISM_CHOIСE, RESISTANCE_CHOIСE,
     BODY_MATERIAL_CHOIСE, CIRCLET_CHOIСE, COLOR_CHOIСE, CASE_SHAPE_CHOIСE,
-    GENDER_CHOIСE, MIN_PRICE, MAX_PRICE
+    GENDER_CHOIСE, CONDITION_CHOIСE, MIN_PRICE, MAX_PRICE
 )
 
 
@@ -20,6 +20,11 @@ class Watch(models.Model):
     )
     is_available = models.BooleanField(
         'В наличии?'
+    )
+    condition = models.ForeignKey(
+        'Condition',
+        on_delete=models.CASCADE,
+        verbose_name='Состояние'
     )
     brand = models.ForeignKey(
         'Brand',
@@ -100,7 +105,7 @@ class Watch(models.Model):
     )
 
     class Meta:
-        ordering = ['-is_on_main']
+        ordering = ['is_available']
         verbose_name = 'Часы'
         verbose_name_plural = 'Часы'
 
@@ -329,3 +334,25 @@ class WatchImage(models.Model):
 
     def __str__(self):
         return 'Изображение часов'
+
+
+class Condition(models.Model):
+    name = models.CharField(
+        'Название',
+        max_length=255,
+        unique=True,
+        choices=CONDITION_CHOIСE
+    )
+    slug = models.SlugField(
+        'Слаг',
+        max_length=255,
+        unique=True
+    )
+
+    class Meta:
+        ordering = ['-name']
+        verbose_name = 'Состояние часов'
+        verbose_name_plural = 'Состояние часов'
+
+    def __str__(self):
+        return self.name

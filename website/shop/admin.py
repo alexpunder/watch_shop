@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import (
     Watch, Brand, Country, Mechanism, WaterResistance, BodyMaterial, Circlet,
-    Color, CaseShape, Gender, WatchImage
+    Color, CaseShape, Gender, WatchImage, Condition
 )
 
 
@@ -14,6 +14,29 @@ class ProductImageInline(admin.TabularInline):
 @admin.register(Watch)
 class WatchAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
+    list_display = (
+        'is_available', 'is_published', 'is_on_main',
+        'condition', 'brand', 'name', 'price',
+        'article', 'country', 'mechanism', 'water_resistance',
+        'body_material', 'circlet', 'color', 'case_shape', 'gender',
+    )
+    list_display_links = (
+        'brand',
+        'name', 'article', 'country', 'mechanism', 'water_resistance',
+        'body_material', 'circlet', 'color', 'case_shape', 'gender'
+    )
+    list_filter = (
+        'is_available', 'is_published', 'is_on_main', 'condition',
+        'brand', 'country', 'mechanism', 'water_resistance',
+        'body_material', 'circlet', 'color', 'case_shape', 'gender'
+    )
+    list_editable = (
+        'is_available', 'is_published', 'is_on_main', 'condition',
+    )
+    search_fields = (
+        'name', 'price',
+    )
+    list_per_page = 25
 
 
 @admin.register(Brand)
@@ -63,4 +86,9 @@ class GenderAdmin(admin.ModelAdmin):
 
 @admin.register(WatchImage)
 class WatchImageAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Condition)
+class ConditionAdmin(admin.ModelAdmin):
     pass
