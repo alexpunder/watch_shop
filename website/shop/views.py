@@ -3,7 +3,7 @@ from django.core.paginator import Paginator
 from django.views.decorators.http import require_POST
 
 
-from .models import Watch
+from .models import Watch, Condition, Brand, Gender, BodyMaterial, CaseShape
 from .forms import AddToCart
 from .cart import Cart
 
@@ -16,13 +16,43 @@ def watch_list(request):
     watches = Watch.objects.filter(
         is_published=True, is_available=True
     )
+
+    # Получаем значения параметров из GET-параметров запроса
+    condition_ids = request.GET.getlist('condition')
+    brand_ids = request.GET.getlist('brand')
+    gender_ids = request.GET.getlist('gender')
+    body_material_ids = request.GET.getlist('body_material')
+    case_shape_ids = request.GET.getlist('case_shape')
+
+    # Применяем фильтры к запросу
+    if condition_ids:
+        watches = watches.filter(condition__id__in=condition_ids)
+    if brand_ids:
+        watches = watches.filter(brand__id__in=brand_ids)
+    if gender_ids:
+        watches = watches.filter(gender__id__in=gender_ids)
+    if body_material_ids:
+        watches = watches.filter(body_material__id__in=body_material_ids)
+    if case_shape_ids:
+        watches = watches.filter(case_shape__id__in=case_shape_ids)
+
     paginator = Paginator(watches, PRODUCTS_ON_PAGE)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     cart_product_form = AddToCart()
+    category_condition = Condition.objects.all()
+    category_brand = Brand.objects.all()
+    category_gender = Gender.objects.all()
+    category_body_material = BodyMaterial.objects.all()
+    category_case_shape = CaseShape.objects.all()
     context = {
         'page_obj': page_obj,
-        'cart_product_form': cart_product_form
+        'cart_product_form': cart_product_form,
+        'category_condition': category_condition,
+        'category_brand': category_brand,
+        'category_gender': category_gender,
+        'category_body_material': category_body_material,
+        'category_case_shape': category_case_shape
     }
     return render(request, template_name, context)
 

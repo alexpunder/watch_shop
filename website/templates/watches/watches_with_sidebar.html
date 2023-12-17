@@ -15,52 +15,101 @@
             <h3 class="widget-title">Категории</h3>
         </aside>
 
-        <aside class="widget widget_product_categories">
-            <ul class="product-categories">
-                <li><a href="#" title="Пол">Пол</a>
-                    <ul class="children">
-                        <li><a href="#" title="Мужские">Мужские</a></li>
-                        <li><a href="#" title="Женские">Женские</a></li>
-                        <li><a href="#" title="Детские">Детские</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" title="Бренд">Бренд</a>
-                    <ul>
-                        <li><a href="#" title="Swatch">Swatch</a></li>
-                        <li><a href="#" title="Tissot">Tissot</a></li>
-                        <li><a href="#" title="Rolex">Rolex</a></li>
-                        <li><a href="#" title="Зенит">Зенит</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" title="Страна">Страна</a>
-                    <ul>
-                        <li><a href="#" title="Швейцария">Швейцария</a></li>
-                        <li><a href="#" title="Япония">Япония</a></li>
-                        <li><a href="#" title="Россия">Россия</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" title="Механизм">Механизм</a>
-                    <ul>
-                        <li><a href="#" title="Кварцевые">Кварцевые</a></li>
-                        <li><a href="#" title="Механические">Механические</a></li>
-                        <li><a href="#" title="Смарт-часы">Смарт-часы</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" title="Цвет">Цвет</a>
-                    <ul>
-                        <li><a href="#" title="Черный">Черный</a></li>
-                        <li><a href="#" title="Серебристый">Серебристый</a></li>
-                        <li><a href="#" title="Бронзовый">Бронзовый</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
+        <form method="get" action="{% url 'shop:watch_list' %}">
+            <aside class="widget widget_product_categories">
+                <ul class="product-categories">
+                    <li><a href="" title="Пол">Кому</a>
+                        <ul class="children">
+                            {% for category in category_gender %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="defaultCheck1" name="gender">
+                                    <label class="form-check-label" for="gender_{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="" title="Состояние">Состояние</a>
+                        <ul>
+                            {% for category in category_condition %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="condition_{{ category.id }}" name="condition">
+                                    <label class="form-check-label" for="condition_{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="" title="Бренд">Бренд</a>
+                        <ul>
+                            {% for category in category_brand %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="brand_{{ category.id }}" name="brand">
+                                    <label class="form-check-label" for="brand_{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="" title="Стоимость">Стоимость</a>
+                        <ul>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Стоимость до 5 000 Р.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Стоимость до 50 000 Р.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Стоимость свыше 50 000 Р.
+                                </label>
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="" title="Цвет">Форма корпуса</a>
+                        <ul>
+                            {% for category in category_case_shape %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="case_shape_{{ category.id }}" name="case_shape">
+                                    <label class="form-check-label" for="brand_{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="" title="Цвет">Материал корпуса</a>
+                        <ul>
+                            {% for category in category_body_material %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="body_material_{{ category.id }}" name="body_material">
+                                    <label class="form-check-label" for="body_material_{{ category.id }}">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+            <button type="submit" id="applyFilterBtn">Применить фильтр</button>
+        </form>
       </div>
 
       <div id="primary" class="col-xs-12 col-md-9">
 
               <div class="ordering">
-                  <a href="#" title="show sidebar">Выбрать отображение:</a>
+                  <a href="" title="show sidebar">Выбрать отображение:</a>
                   <span class="list"></span>
                   <span class="col active"></span>
               </div>

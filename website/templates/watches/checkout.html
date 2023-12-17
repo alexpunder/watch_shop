@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class="main-content space-80 check-billing"> 
+    <div class="container">            
+      <ul class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">Check out</li>
+      </ul>   
+      <div class="checkout-header">
+          <ul>
+              <li class="active"><span>01</span>Подтверждение заказа</li>
+              <li><span>02</span>Готово!</li>
+          </ul>
+      </div>
+      <div class="contact-form check-out space-50">
+          <div class="col-md-12 padding-left-0">
+              <div class="title-product">
+                  <h3>Детали заказа</h3>
+              </div>
+              <form class="form" method="post" enctype="multipart/form-data" id="checkoutForm">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-group col-md-6{% if field.errors %} has-error{% endif %}">
+                        {% bootstrap_field field form_group_class='my_custom_class' %}
+                    </div>
+                {% endfor %}
+            </form>
+          </div>
+      </div>
+      <div class="cart-review space-padding-tb-40 space-30">
+          <div class="title-product">
+              <h3>Просмотр корзины</h3>
+          </div>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th><strong>Название</strong></th>
+                      <th><strong>Описание</strong></th>
+                      <th><strong>Цена</strong></th>
+                      <th><strong>Количество</strong></th>
+                      <th><strong>Итоговая</strong></th>
+                  </tr>
+              </thead>
+              <tbody>
+                {% for item in cart %}
+                  <tr>
+                      <td>{{ item.watch.brand.name }} {{ item.watch.name }}</td>
+                      <td>{{ item.watch.description|truncatewords:20 }}</td>
+                      <td>{{ item.price }} Р.</td>
+                      <td>{{ item.quantity }}</td>
+                      <td>{{ item.total_price }} Р.</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+          </table>
+      </div>
+      <div class="payment-order">
+          <div class="payment col-md-6 padding-left-0">
+              <div class="title-product">
+                  <h3>Способ оплаты</h3>
+              </div>
+              <ul class="tabs">
+                  <li>
+                      <i class="icon"></i>
+                      <h3>Оплата в пункте выдачи</h3>
+                      <p>На данный момент доступен только этот вариант оплаты,</p>
+                      <p>но мы работаем и над другими!</p>
+                  </li>
+              </ul>
+          </div>
+          <div class="order col-md-6 text-price padding-right-0">
+              <div class="title-product">
+                  <h3>Ваш заказ</h3>
+              </div>
+              <ul>
+                  <li></li>
+                  <li><span class="text space-10"><strong>ОБЩИЙ ИТОГ:</strong></span><span class="number color">{{ cart.get_total_price }} Р.</span></li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-md-12 place-order-now">
+          <a title="Proceed to checkout" href="" class="btn link-button" onclick="submitForm(event)">Разместить заказ</a>
+      </div>
+  </div>           
+</div>
+
+<script>
+    function submitForm(event) {
+        event.preventDefault(); // Отменяем действие по умолчанию (переход по ссылке)
+        // При нажатии кнопки "Разместить заказ" автоматически отправляем форму
+        document.getElementById("checkoutForm").submit();
+    }
+</script>
+
+{% endblock  %}

@@ -52,11 +52,6 @@
                         <li class="level1 dropdown"><a href="{% url 'main:sell_watches' %}" title="Продать часы">Продать часы</a>
                         </li>
                         <li class="level1 dropdown"><a href="{% url 'shop:watch_list' %}" title="Удобно">Купить часы</a>
-                            <ul class="menu-level-1 dropdown-menu">
-                                <li class="level2"><a href={% url 'shop:watch_list' %} title="Состояние часов">Новые</a></li>
-                                <li class="level2"><a href={% url 'shop:watch_list' %} title="Состояние часов">Как новые</a></li>
-                                <li class="level2"><a href={% url 'shop:watch_list' %} title="Состояние часов">Хорошее</a></li>
-                            </ul>
                         </li>
                         <li class="level1 dropdown"><a href="{% url 'main:evaluation' %}" title="Выгодно">Оценка часов</a>
                         </li>
@@ -99,7 +94,7 @@
                                         {% endwith %}
                                     {% endfor %}
                                     <p class="total"><span>Итог:</span> {{ cart.get_total_price }} Р.</p>
-                                    <a class="checkout" href="#" title="">Оформить</a>
+                                    <a class="checkout" href="{% url 'orders:checkout' %}" title="Перейти к оформлению заказа">Оформить</a>
                                 </div>
                             {% endif %}
                         </div>

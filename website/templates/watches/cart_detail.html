@@ -63,7 +63,8 @@
                 <ul>
                     <li><span class="text">Итог:</span><span class="number">{{ cart.get_total_price }} Р.</span></li>
                 </ul>
-                <a class="btn link-button" href="#" title="Proceed to checkout">Оформить</a>
+                <a class="btn link-button" href="{% url 'orders:checkout' %}" title="Перейти к оформлению заказа">Оформить</a>
+                <a class="btn link-button" href="{% url 'shop:watch_list' %}" title="Вернуться в каталог">В каталог</a>
             </div>
         </div>
     </div>

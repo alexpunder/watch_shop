@@ -28,6 +28,7 @@ WISH_LIST_SESSION_ID = 'wish_list'
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
 
     'main.apps.MainConfig',
     'shop.apps.ShopConfig',
+    'orders.apps.OrdersConfig',
     'util_pages.apps.UtilPagesConfig',
 ]
 

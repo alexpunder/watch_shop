@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="main-content check-confirm space-50"> 
+    <div class="container">
+          <div class="checkout-header">
+              <ul>
+                <li><span>01</span>Подтверждение заказа</li>
+                <li class="active"><span>02</span>Готово!</li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+              <div class="icon">
+                  <i class="fa fa-shopping-basket"><i class="fa fa-check"></i></i>
+                  <h3>Ваш заказ успешно размещён</h3>
+                  <h4>Спасибо!</h4>
+              </div>
+          </div>
+          <div class="col-md-6 order-details">
+              <div class="title-product">
+                  <h3>Детали заказа ( ID:<span class="color"> {{ order.id }}</span> )</h3>
+              </div>
+
+                  <div class="col-md-6 space-30">
+                      <h4>Детали заказа:</h4>
+                      <p><b>Имя:</b> {{ order.first_name }}</p>
+                      <p><b>Фамилия:</b> {{ order.last_name }}</p>
+                      <p><b>Телефон: </b>{{ order.phone_number }}</p>
+                      <p><b>Почта:</b> {{ order.email }}</p>
+                      <p><b>Адрес: </b>{{ order.adress }}</p>
+                  </div>
+
+                  <div class="col-md-6 space-30">
+                    <h4>Коризна:</h4>
+                    {% for item in order.items.all %}
+                        <p>{{ item.product.brand.name }} {{ item.product.name }} x {{ item.quantity }}   {{ item.get_cost }} Р.</p>
+                    {% endfor %}
+                    <p class="total"><span>Итог:</span> {{ order.get_total_cost }} Р.</p>
+                  </div>
+
+                  <div class="col-md-12 return-home space-padding-tb-80" style="text-align: center;"><a class="btn link-button space-20" href="{% url 'main:homepage' %}" title="На главную">На главную</a><a class="btn link-button link-button-v2 space-20" href="{% url 'shop:watch_list' %}" title="Продолжить покупки">Продолжить покупки</a></div>
+          </div>
+    </div>
+</div>
+
+{% endblock  %}

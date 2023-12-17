@@ -26,7 +26,7 @@ class MessageAdmin(admin.ModelAdmin):
 
 
 @admin.register(ExtendMessage)
-class MessageAdmin(admin.ModelAdmin):
+class ExtendMessageAdmin(admin.ModelAdmin):
     list_display = (
         'processed', 'pub_date', 'phone_number', 'first_name', 'email',
         'watch_mark', 'watch_model', 'description', 'image',
