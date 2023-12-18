@@ -9,13 +9,21 @@ CHANAL_ID = '-1002109369857'
 bot = Bot(token=TELEGRAM_TOKEN)
 
 
-def message(phone, text, image):
+def message(phone, text, image=None, name=None):
     some_text = text if text else 'ничего не написали...'
-    text_message = (
-        'Пользователь оставил следюущие данные: \n'
-        f'Телефон для связи - {phone} \n'
-        f'Сопроводительный текст - {some_text} \n'
-    )
+    if name:
+        text_message = (
+            'Пользователь оставил следюущие данные: \n'
+            f'Имя - {name} \n'
+            f'Телефон для связи - {phone} \n'
+            f'Сопроводительный текст - {some_text} \n'
+        )
+    else:
+        text_message = (
+            'Пользователь оставил следюущие данные: \n'
+            f'Телефон для связи - {phone} \n'
+            f'Сопроводительный текст - {some_text} \n'
+        )
     if image:
         image_path = os.path.join(settings.MEDIA_ROOT, 'temp_image.jpg')
         with open(image_path, 'wb') as image_file:

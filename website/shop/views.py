@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Count
 from django.views.decorators.http import require_POST
 
 
@@ -17,14 +18,12 @@ def watch_list(request):
         is_published=True, is_available=True
     )
 
-    # Получаем значения параметров из GET-параметров запроса
     condition_ids = request.GET.getlist('condition')
     brand_ids = request.GET.getlist('brand')
     gender_ids = request.GET.getlist('gender')
     body_material_ids = request.GET.getlist('body_material')
     case_shape_ids = request.GET.getlist('case_shape')
 
-    # Применяем фильтры к запросу
     if condition_ids:
         watches = watches.filter(condition__id__in=condition_ids)
     if brand_ids:
@@ -40,11 +39,21 @@ def watch_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     cart_product_form = AddToCart()
-    category_condition = Condition.objects.all()
-    category_brand = Brand.objects.all()
-    category_gender = Gender.objects.all()
-    category_body_material = BodyMaterial.objects.all()
-    category_case_shape = CaseShape.objects.all()
+    category_condition = Condition.objects.annotate(
+        num_watches=Count('watch')
+    )
+    category_brand = Brand.objects.annotate(
+        num_watches=Count('watch')
+    )
+    category_gender = Gender.objects.annotate(
+        num_watches=Count('watch')
+    )
+    category_body_material = BodyMaterial.objects.annotate(
+        num_watches=Count('watch')
+    )
+    category_case_shape = CaseShape.objects.annotate(
+        num_watches=Count('watch')
+    )
     context = {
         'page_obj': page_obj,
         'cart_product_form': cart_product_form,

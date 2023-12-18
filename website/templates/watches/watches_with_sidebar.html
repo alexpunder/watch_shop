@@ -24,7 +24,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="defaultCheck1" name="gender">
                                     <label class="form-check-label" for="gender_{{ category.id }}">
-                                        {{ category.name }}
+                                        &nbsp;&nbsp;{{ category.name }} ({{ category.num_watches }})
                                     </label>
                                 </div>
                             {% endfor %}
@@ -36,7 +36,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="condition_{{ category.id }}" name="condition">
                                     <label class="form-check-label" for="condition_{{ category.id }}">
-                                        {{ category.name }}
+                                        &nbsp;&nbsp;{{ category.name }} ({{ category.num_watches }})
                                     </label>
                                 </div>
                             {% endfor %}
@@ -48,7 +48,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="brand_{{ category.id }}" name="brand">
                                     <label class="form-check-label" for="brand_{{ category.id }}">
-                                        {{ category.name }}
+                                        &nbsp;&nbsp;{{ category.name }} ({{ category.num_watches }})
                                     </label>
                                 </div>
                             {% endfor %}
@@ -59,19 +59,19 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Стоимость до 5 000 Р.
+                                    &nbsp;&nbsp;Стоимость до 5000 Р.
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Стоимость до 50 000 Р.
+                                    &nbsp;&nbsp;Стоимость до 50000 Р.
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    Стоимость свыше 50 000 Р.
+                                    &nbsp;&nbsp;Стоимость свыше 50000 Р.
                                 </label>
                             </div>
                         </ul>
@@ -82,7 +82,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="case_shape_{{ category.id }}" name="case_shape">
                                     <label class="form-check-label" for="brand_{{ category.id }}">
-                                        {{ category.name }}
+                                        &nbsp;&nbsp;{{ category.name }} ({{ category.num_watches }})
                                     </label>
                                 </div>
                             {% endfor %}
@@ -94,7 +94,7 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="{{ category.id }}" id="body_material_{{ category.id }}" name="body_material">
                                     <label class="form-check-label" for="body_material_{{ category.id }}">
-                                        {{ category.name }}
+                                        &nbsp;&nbsp;{{ category.name }} ({{ category.num_watches }})
                                     </label>
                                 </div>
                             {% endfor %}

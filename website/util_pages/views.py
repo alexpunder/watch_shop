@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 
+from main.bot_sending_messages import message
 from .forms import ContactForm
 
 
@@ -26,7 +27,11 @@ def contacts(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            pass
+            phone = form.cleaned_data['phone_number']
+            text = form.cleaned_data['text']
+            name = form.cleaned_data['name']
+            message(phone, text, name=name)
+            return redirect('main:popup_message')
     else:
         form = ContactForm()
     context = {
@@ -43,5 +48,19 @@ class Terms(TemplateView):
     template_name = 'util_pages/terms.html'
 
 
-class Questions(TemplateView):
+def questions(request):
     template_name = 'util_pages/questions.html'
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            phone = form.cleaned_data['phone_number']
+            text = form.cleaned_data['text']
+            name = form.cleaned_data['name']
+            message(phone, text, name=name)
+            return redirect('main:popup_message')
+    else:
+        form = ContactForm()
+    context = {
+        'form': form
+    }
+    return render(request, template_name, context)

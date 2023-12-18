@@ -11,6 +11,21 @@ class ProductImageInline(admin.TabularInline):
     extra = 1
 
 
+class BaseForCategoriesAdmin(admin.ModelAdmin):
+    list_display = (
+        'name', 'slug'
+    )
+    list_display_links = (
+        'name', 'slug'
+    )
+    search_fields = (
+        'name', 'slug'
+    )
+    list_filter = (
+        'name',
+    )
+
+
 @admin.register(Watch)
 class WatchAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
@@ -40,47 +55,47 @@ class WatchAdmin(admin.ModelAdmin):
 
 
 @admin.register(Brand)
-class BrandAdmin(admin.ModelAdmin):
+class BrandAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(Country)
-class CountryAdmin(admin.ModelAdmin):
+class CountryAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(Mechanism)
-class MechanismAdmin(admin.ModelAdmin):
+class MechanismAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(WaterResistance)
-class WaterResistanceAdmin(admin.ModelAdmin):
+class WaterResistanceAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(BodyMaterial)
-class BodyMaterialAdmin(admin.ModelAdmin):
+class BodyMaterialAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(Circlet)
-class CircletAdmin(admin.ModelAdmin):
+class CircletAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(Color)
-class ColorAdmin(admin.ModelAdmin):
+class ColorAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(CaseShape)
-class CaseShapeAdmin(admin.ModelAdmin):
+class CaseShapeAdmin(BaseForCategoriesAdmin):
     pass
 
 
 @admin.register(Gender)
-class GenderAdmin(admin.ModelAdmin):
+class GenderAdmin(BaseForCategoriesAdmin):
     pass
 
 
@@ -90,5 +105,5 @@ class WatchImageAdmin(admin.ModelAdmin):
 
 
 @admin.register(Condition)
-class ConditionAdmin(admin.ModelAdmin):
+class ConditionAdmin(BaseForCategoriesAdmin):
     pass

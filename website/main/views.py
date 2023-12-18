@@ -63,9 +63,13 @@ def send_message(request):
     без сохранение обращения пользователя в БД.
     """
     if request.method == 'POST':
-        form = MessageForm(request.POST, request.FILES)
+        form = MessageForm(request.POST)
         if form.is_valid():
-            pass
+            phone = form.cleaned_data['phone_number']
+            text = form.cleaned_data['text']
+            name = form.cleaned_data['name']
+            message(phone, text, name=name)
+            return redirect('main:popup_message')
     else:
         form = MessageForm()
     return render(
