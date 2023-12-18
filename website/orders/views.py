@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from shop.cart import Cart
 from .models import OrderItem
@@ -24,6 +24,8 @@ def checkout(request):
                 return render(
                     request, 'watches/confirmation.html', {'order': order}
                 )
+            else:
+                return redirect('shop:cart_detail')
     else:
         form = OrderForm()
     context = {'cart': cart, 'form': form}
