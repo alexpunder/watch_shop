@@ -4,7 +4,21 @@
 
 {% block content %}
 
-<div class="main-content space-80"> 
+<style>
+    .filter-buttons {
+        text-align: left; /* Центрирование кнопок */
+        margin-top: 10px; /* Пространство сверху между блоком категорий и кнопками */
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+    }
+    
+    .filter-buttons button {
+        margin-top: 10px; /* Пространство между кнопками */
+    }
+</style>
+
+<div class="main-content space-60"> 
     <div class="container">            
       <ul class="breadcrumb">
         <li><a href="{% url 'main:homepage' %}">Главная</a></li>
@@ -18,7 +32,7 @@
         <form method="get" action="{% url 'shop:watch_list' %}">
             <aside class="widget widget_product_categories">
                 <ul class="product-categories">
-                    <li><a href="" title="Пол">Кому</a>
+                    <li><a title="Пол">Кому</a>
                         <ul class="children">
                             {% for category in category_gender %}
                                 <div class="form-check">
@@ -30,7 +44,7 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="" title="Состояние">Состояние</a>
+                    <li><a title="Состояние">Состояние</a>
                         <ul>
                             {% for category in category_condition %}
                                 <div class="form-check">
@@ -42,7 +56,7 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="" title="Бренд">Бренд</a>
+                    <li><a title="Бренд">Бренд</a>
                         <ul>
                             {% for category in category_brand %}
                                 <div class="form-check">
@@ -55,7 +69,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" title="Стоимость">Стоимость</a>
+                        <a title="Стоимость">Стоимость</a>
                         <ul>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="5000" id="max_price_1" name="max_price_1">
@@ -77,7 +91,7 @@
                             </div>
                         </ul>
                     </li>
-                    <li><a href="" title="Цвет">Форма корпуса</a>
+                    <li><a title="Цвет">Форма корпуса</a>
                         <ul>
                             {% for category in category_case_shape %}
                                 <div class="form-check">
@@ -89,7 +103,7 @@
                             {% endfor %}
                         </ul>
                     </li>
-                    <li><a href="" title="Цвет">Материал корпуса</a>
+                    <li><a title="Цвет">Материал корпуса</a>
                         <ul>
                             {% for category in category_body_material %}
                                 <div class="form-check">
@@ -103,13 +117,15 @@
                     </li>
                 </ul>
             </aside>
-            <button class="btn btn-primary space-10" type="submit" id="applyFilterBtn">Применить фильтр</button>
-            <button class="btn btn-primary" type="submit" action="{% url 'shop:watch_list' %}">Сбросить фильтр</button>
+            <div class="filter-buttons">
+                <button class="btn btn-primary space-10" type="submit" id="applyFilterBtn">Применить фильтр</button>
+                <button class="btn btn-primary" type="submit" action="{% url 'shop:watch_list' %}">Сбросить фильтр</button>
+            </div>
         </form>
       </div>
 
       <div id="primary" class="col-xs-12 col-md-9">
-        <div class="col">
+        <div class="col space-padding-tb-20">
             <span>Выбранные фильтры:</span>
             {% if filters_applied %}
               {% if max_price_1 %}
@@ -151,7 +167,7 @@
             {% endif %}
           </div>
               <div class="ordering">
-                  <a href="" title="">Выбрать отображение:</a>
+                  <a title="">Выбрать отображение:</a>
                   <span class="list"></span>
                   <span class="col active"></span>
               </div>

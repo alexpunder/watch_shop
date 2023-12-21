@@ -35,10 +35,20 @@
     .form-title {
         margin-bottom: 25px;
     }
+    /* Стили для десктопной версии */
+    .tp-banner-container {
+        margin-bottom: 60px; /* Исходный отступ для десктопа */
+    }
 
+    /* Стили для мобильной версии */
+    @media (max-width: 767px) {
+        .tp-banner-container {
+            margin-bottom: 0; /* Отступ 0 в мобильной версии */
+        }
+    }
 </style>
 
-<div class="tp-banner-container space-60 ver6">
+<div class="tp-banner-container ver6">
     <div class="tp-banner">
         <ul>
             <li data-transition="fade" data-slotamount="7" data-masterspeed="100000">

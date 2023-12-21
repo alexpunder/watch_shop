@@ -12,6 +12,18 @@
         <link rel="stylesheet" type="text/css" href="{% static 'vendor/settings.css' %}">
         <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <title>Watchmaker</title>
+        <style>
+            #topbar {
+                display: block;
+            }
+            
+            /* Стили для мобильной версии */
+            @media (max-width: 767px) {
+                #topbar {
+                    display: none;
+                }
+            }
+        </style>
     </head>
     <body>
         {% include "includes/header.html" %}

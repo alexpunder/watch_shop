@@ -12,10 +12,32 @@
     .dropdown.active {
         visibility: visible;
     }
+
+    /* Стили для десктопной версии */
+    .tp-banner-container {
+        margin-bottom: 30px; /* Исходный отступ для десктопа */
+    }
+
+    /* Стили для мобильной версии */
+    @media (max-width: 767px) {
+        .tp-banner-container {
+            margin-bottom: 0; /* Отступ 0 в мобильной версии */
+        }
+    }
+    #topbar {
+        display: block;
+    }
+    
+    /* Стили для мобильной версии */
+    @media (max-width: 767px) {
+        #topbar {
+            display: none;
+        }
+    }
 </style>
 
-<header id="header" class="header-v6 color-home2">
-    <div id="topbar" class="space-20">
+<header id="header" class="header-v4 header-box header-only-v4">
+    <div id="topbar">
         <div class="container">
             <div class="topbar-left">
                  <div class="dropdown">
@@ -25,6 +47,11 @@
                       <a class="btn active">watchmaker@ya.com</a>
                 </div>
             </div>
+            <div class="social">
+                <a href="https://t.me/+_brgVJeEvnMyNDRi" title="telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a>
+                <a href="#" title="whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
+                <a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
             <div class="topbar-right">
                 <div class="sign-in">
                     <a href="#" title="Номер 1">+7 (999) 888-77-66</a>
@@ -32,75 +59,68 @@
                     <a href="#" title="Номер 2"></i>+7 (111) 222-33-44</a>
                 </div>
             </div>
-            <div class="social">
-                <a href="https://t.me/+_brgVJeEvnMyNDRi" title="telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a>
-                <a href="#" title="whatsapp"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
-                <a href="#" title="instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <div class="cart dropdown">
+                <a class="icon-cart" href="{% url "shop:cart_detail" %}" title="Корзина">
+                    <i class="fa fa-shopping-basket"></i>
+                    {% if cart %}
+                        {% with total_items=cart|length %}
+                            <span class="cart-count">{{ total_items }}</span>
+                        {% endwith %}
+                    {% else %}
+                        <span class="cart-count">0</span>
+                    {% endif %}
+                </a>
+                {% if cart %}
+                    <div class="cart-list dropdown-menu">
+                        {% for item in cart %}
+                            {% with product=item.watch %}
+                            <ul class="list">
+                                <li>
+                                    {% if product.images.all %}
+                                        <a href="{% url 'shop:watch_detail' pk=product.id %}" title="" class="cart-product-image"><img src="{{ product.images.all.0.image.url }}" alt="Product"></a>
+                                    {% endif %}
+                                    <div class="text">
+                                        <p class="product-name">{{ product.brand.name }} {{ product.name }}</p>
+                                        <p class="product-price">{{ product.price }} Р.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            {% endwith %}
+                        {% endfor %}
+                        <p class="total"><span>Итог:</span> {{ cart.get_total_price }} Р.</p>
+                        <a class="checkout" href="{% url 'orders:checkout' %}" title="Перейти к оформлению заказа">Оформить</a>
+                    </div>
+                {% endif %}
             </div>
+            
         </div>
     </div>
     <div class="header-top">
         <div class="container">
-            <div class="inner-container">
-                <div class="col-md-12 space-20">
-                    <div class="logo"><a href={% url 'main:homepage' %} title="Watchman">Watchman</a></div>
-                </div>
-                <nav class="mega-menu menu-v6 color-home6 space-10">
-                    <ul class="nav navbar-nav" id="navbar">
-                        <li class="level1 active dropdown"><a href="{% url 'main:homepage' %}" title="Веруться на главную страницу">Главная</a>
-                        </li>
-                        <li class="level1 dropdown"><a href="{% url 'main:sell_watches' %}" title="Продать часы">Продать часы</a>
-                        </li>
-                        <li class="level1 dropdown"><a href="{% url 'shop:watch_list' %}" title="Удобно">Купить часы</a>
-                        </li>
-                        <li class="level1 dropdown"><a href="{% url 'main:evaluation' %}" title="Выгодно">Оценка часов</a>
-                        </li>
-                        <li class="level1 dropdown"><a href="{% url 'main:services' %}" title="Узнай о них всё">Услуги</a>
-                        </li>
-                        <li class="level1 dropdown"><a href={% url 'util_pages:about' %} title="О нас">О нас</a>
-                            <ul class="menu-level-1 dropdown-menu">
-                                <li class="level2"><a href={% url 'util_pages:about' %} title="Компания">Компания</a></li>
-                                <li class="level2"><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>
-                            </ul>
-                        </li>
-                        <li class="level1 dropdown"><a href={% url 'util_pages:contacts' %} title="Контакты">Контакты</a>
-                        </li>
-                        <div class="cart dropdown">
-                            <a class="icon-cart" href="{% url "shop:cart_detail" %}" title="Корзина">
-                                <i class="fa fa-shopping-basket"></i>
-                                {% if cart %}
-                                    {% with total_items=cart|length %}
-                                        <span class="cart-count">{{ total_items }}</span>
-                                    {% endwith %}
-                                {% else %}
-                                    <span class="cart-count">0</span>
-                                {% endif %}
-                            </a>
-                            {% if cart %}
-                                <div class="cart-list dropdown-menu">
-                                    {% for item in cart %}
-                                        {% with product=item.watch %}
-                                        <ul class="list">
-                                            <li>
-                                                {% if product.images.all %}
-                                                    <a href="{% url 'shop:watch_detail' pk=product.id %}" title="" class="cart-product-image"><img src="{{ product.images.all.0.image.url }}" alt="Product"></a>
-                                                {% endif %}
-                                                <div class="text">
-                                                    <p class="product-name">{{ product.brand.name }} {{ product.name }}</p>
-                                                    <p class="product-price">{{ product.price }} Р.</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        {% endwith %}
-                                    {% endfor %}
-                                    <p class="total"><span>Итог:</span> {{ cart.get_total_price }} Р.</p>
-                                    <a class="checkout" href="{% url 'orders:checkout' %}" title="Перейти к оформлению заказа">Оформить</a>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </ul>
-                </nav>
-            </div>  
+            <p class="icon-menu-mobile black"><i class="fa fa-bars" ></i></p>
+            <div class="logo"><a href="{% url 'main:homepage' %}" title="Hermes">Hermes</a></div>
+            <nav class="mega-menu">
+                <ul class="nav navbar-nav" id="navbar">
+                    <li class="level1 active dropdown"><a href="{% url 'main:homepage' %}" title="Веруться на главную страницу">Главная</a>
+                    </li>
+                    <li class="level1 dropdown"><a href="{% url 'main:sell_watches' %}" title="Продать часы">Продать часы</a>
+                    </li>
+                    <li class="level1 dropdown"><a href="{% url 'shop:watch_list' %}" title="Удобно">Купить часы</a>
+                    </li>
+                    <li class="level1 dropdown"><a href="{% url 'main:evaluation' %}" title="Выгодно">Оценка часов</a>
+                    </li>
+                    <li class="level1 dropdown"><a href="{% url 'main:services' %}" title="Узнай о них всё">Услуги</a>
+                    </li>
+                    <li class="level1 dropdown"><a href={% url 'util_pages:about' %} title="О нас">О нас</a>
+                        <ul class="menu-level-1 dropdown-menu">
+                            <li class="level2"><a href={% url 'util_pages:about' %} title="Компания">Компания</a></li>
+                            <li class="level2"><a href={% url 'util_pages:questions' %} title="Частые вопросы">Частые вопросы</a></li>
+                        </ul>
+                    </li>
+                    <li class="level1 dropdown"><a href={% url 'util_pages:contacts' %} title="Контакты">Контакты</a>
+                    </li>
+                </ul>
+            </nav>     
         </div>
     </div>
 </header>

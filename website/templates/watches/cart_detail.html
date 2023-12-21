@@ -67,11 +67,9 @@
                 <a class="btn link-button" href="{% url 'shop:watch_list' %}" title="Вернуться в каталог">В каталог</a>
             </div>
         </div>
-    </div>
-    
-      {% else %}
+        {% else %}
         {% include "includes/empty_cart.html" %}
-      {% endif %}
+        {% endif %}
     </div>
 </div>
 
