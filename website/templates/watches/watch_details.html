@@ -31,7 +31,12 @@
 </style>
 
 <div class="main-content space-40">
-    <div class="container">     
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="{% url 'main:homepage' %}">Главная</a></li>
+            <li><a href="{% url 'shop:watch_list' %}">Купить часы</a></li>
+            <li class="active">Страница часов</li>
+        </ul> 
         <div class="product-details-content">
             <div class="col-md-6 col-sm-6">
                 <div class="product-img-box">
@@ -148,22 +153,24 @@
         </div>   
     </div>  
 </div>
-<div class="container space-40" id="similarProductsBlock">
-    <div class="col-12">
-        <div>
-            <div class="title-product">
-                <h3>Похожие товары</h3>
-            </div>
-            <div class="feature-product color-home2">
-                <div class="product-tab-content products">
-                    {% include "includes/product_card.html" %}
-                    {% include "includes/product_card.html" %}
-                    {% include "includes/product_card.html" %}
-                    {% include "includes/product_card.html" %}
+
+{% if similar_products %}
+    <div class="container space-40" id="similarProductsBlock">
+        <div class="col-12">
+            <div>
+                <div class="title-product">
+                    <h3>Похожие товары</h3>
+                </div>
+                <div class="feature-product color-home2">
+                    <div class="product-tab-content products">
+                        {% for product in similar_products %}
+                            {% include "includes/product_card.html" %}
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+{% endif %}
 
 {% endblock %}
