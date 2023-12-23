@@ -1,3 +1,5 @@
+{% load django_bootstrap5 %}
+
 {% comment %} <footer id="footer" class="footer-v4">
     <div class="container">
         <div class="row footer-top">
@@ -44,8 +46,8 @@
     <div class="container">
      <div class="row footer-top">
          <div class="col-md-4">
-             <h2><a href="{% url 'main:homepage' %}" title="Home">Hermes</a></h2>
-             <p class="italic">This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.</p>
+             <h2><a href="{% url 'main:homepage' %}" title="Home">Watchmaker</a></h2>
+             <p class="italic">Часовой бутик, который Вам непременно понравится.</p>
              <div class="infomation">
                 <p><i class="fa fa-bookmark-o"></i>г. Вожский, ул. Неизвестная, д. 10</p>
                 <p><i class="fa fa-phone-square"></i>+7-999-777-55-55</p>
@@ -56,29 +58,30 @@
          <div class="col-md-2">
             <a href={% url 'main:sell_watches' %}><h3>Продать часы</h3></a>
             <ul class="menu">
-                <li><a href="#" title="About us">About us</a></li>
-                <li><a href="#" title="Delivery Information">Delivery Information</a></li>
-                <li><a href="#" title="Privacy Policy">Privacy Policy</a></li>
-                <li><a href="#" title="Discount">Discount</a></li>
-                <li><a href="#" title="Custom Service">Custom Service</a></li>
+                <li><a href="{% url 'main:evaluation' %}" title="Оценка часов">Оценка часов</a></li>
+                <li><a href="{% url 'main:services' %}" title="Услуги">Услуги</a></li>
+                <li><a href="{% url 'util_pages:questions' %}" title="Частые вопросы">Частые вопросы</a></li>
+                <li><a href="{% url 'util_pages:about' %}" title="О нас">О нас</a></li>
             </ul>
          </div>
          <div class="col-md-2">
             <a href={% url 'shop:watch_list' %}><h3>Купить часы</h3></a>
             <ul class="menu">
-                <li><a href="#" title="Sitemap">Sitemap</a></li>
-                <li><a href="#" title="Lorem Ipsum">Lorem Ipsum</a></li>
-                <li><a href="#" title="Proin gravida">Proin gravida</a></li>
-                <li><a href="#" title="Contact us">Contact us</a></li>
-                <li><a href="#" title="Velit auctor">Velit auctor</a></li>
+                <li><a href="{% url 'util_pages:confidential' %}" title="Конфиденциальность">Конфиденциальность</a></li>
+                <li><a href="{% url 'util_pages:terms' %}" title="Пользовательское соглашение">Пользовательское соглашение</a></li>
+                <li><a href="{% url 'util_pages:contacts' %}" title="Контакты">Контакты</a></li>
             </ul>
          </div>                        
          <div class="col-md-4">
-            <h3>Newsletter</h3>
-            <p>Stay up to date about product drops, news and special sales</p>
-            <form accept-charset="utf-8" method="get" action="#">
-                <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Enter Your Email" onfocus="if(this.value != '') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter Your Email';}">
-                <button type="submit" title="Subscribe" class="button button1">Subscribe</button>
+            <h3>Оставить заявку</h3>
+            <form accept-charset="utf-8" method="POST" class="my-form">
+                {% csrf_token %}
+                {% for field in form_footer %}
+                    <div class="form-group {% if field.errors %} has-error{% endif %}">
+                        {% bootstrap_field field form_group_class='my_custom_class' %}
+                    </div>
+                {% endfor %}
+                <button type="submit" title="Отправить" class="button button1 my-button">Отправить</button>
             </form>
         </div>
      </div>
@@ -88,9 +91,6 @@
          <div class="border-footer">
              <div class="col-md-6">
                  <ul class="menu">
-                     <li><a href="#" title="About us">About us</a></li>
-                     <li><a href="#" title="Blog">Blog</a></li>
-                     <li><a href="#" title="Advanced Search">Advanced Search</a></li>
                  </ul>
              </div>
              <div class="col-md-6">
@@ -99,5 +99,4 @@
          </div>
      </div>
    </div>
-   <!-- End container -->
 </footer>

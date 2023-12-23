@@ -12,6 +12,28 @@ class MessageForm(forms.ModelForm):
         )
 
 
+class FooterMessageForm(forms.ModelForm):
+
+    class Meta:
+        model = Message
+        fields = (
+            'phone_number', 'description'
+        )
+        widgets = {
+            'phone_number': forms.TextInput(
+                attrs={'placeholder': 'Введите номер для связи'}
+            ),
+            'description': forms.TextInput(
+                attrs={'placeholder': 'Напишите, что Вас интересует'}
+            ),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['phone_number'].label = ''
+        self.fields['description'].label = ''
+
+
 class ExtendMessageForm(forms.ModelForm):
 
     class Meta:
