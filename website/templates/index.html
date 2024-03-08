@@ -69,65 +69,13 @@
         </ul>
     </div>
     <div class="tp-bannertimer"></div>
-</div>
-
-<div class="container mt-4 space-60">
-    <div class="row">
-        <div class="col-md-4 space-padding-30 contact-form contact-form-bg">
-            <h3 class="space-35">Оставить заявку</h3>
-
-            <form class="form-horizontal" method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="form-group col-md-12{% if field.errors %} has-error{% endif %}">
-                        {% bootstrap_field field form_group_class='my_custom_class' %}
-                    </div>
-                {% endfor %}
-                <button type="submit" class="btn link-button">Отправить</button>
-            </form>
-
-        </div>
-        <div class="container">
-            <div class="col-md-4 col-sm-4 col-xs-6 space-40">
-                <a class="hover-effect-images" title="Предложим самую высокую цену">
-                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
-                    <div class="text-overlay btn link-button">
-                        <h5>Выгодно</h5>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6 space-40">
-                <a class="hover-effect-images" title="Бесплатная оценка по фото">
-                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
-                    <div class="text-overlay btn link-button">
-                        <h5>Удобно</h5>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <a class="hover-effect-images" title="Выкуп и расчет в день обращения">
-                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
-                    <div class="text-overlay btn link-button">
-                        <h5>Быстро</h5>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-6">
-                <a class="hover-effect-images" title="Юридическое сопровождение сделки">
-                    <img src="/static/images/Hermes-home6-banner-top1.jpg" alt="Banner" width="400" height="200">
-                    <div class="text-overlay btn link-button">
-                        <h5>Безопасно</h5>
-                    </div>
-                </a>
-            </div>
-        </div>
     </div>
 </div>
 
 <div class="wrap-hermes-collection space-60">
     <div class="container">
         <div class="hermes-collection hermes-collection-home4">
-            <div class="col-md-6">
+            <div class="col-md-6 space-padding-30 contact-form contact-form-bg">
                 <h3 class="space-35">Оставить заявку</h3>
 
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
@@ -139,14 +87,6 @@
                     {% endfor %}
                     <button type="submit" class="btn link-button">Отправить</button>
                 </form>
-                {% comment %} <a class="hover-effect-images-ver2" href="#" title="Banner">
-                    <img src="static/images/Hermes-home4-banner2-top.jpg" alt="Banner">
-                    <div class="text">
-                        <p>Здесь можно приобрести часы</p>
-                        <h4>от знаменитых</h4>
-                        <h4>брендов</h4>
-                    </div>
-                </a> {% endcomment %}
             </div>
             <div class="col-md-6">
                 <div class="slider-daily bottom-home1-title bottom-home1 hover-control-wrap">
