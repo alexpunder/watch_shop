@@ -128,14 +128,25 @@
     <div class="container">
         <div class="hermes-collection hermes-collection-home4">
             <div class="col-md-6">
-                <a class="hover-effect-images-ver2" href="#" title="Banner">
+                <h3 class="space-35">Оставить заявку</h3>
+
+                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group col-md-12{% if field.errors %} has-error{% endif %}">
+                            {% bootstrap_field field form_group_class='my_custom_class' %}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn link-button">Отправить</button>
+                </form>
+                {% comment %} <a class="hover-effect-images-ver2" href="#" title="Banner">
                     <img src="static/images/Hermes-home4-banner2-top.jpg" alt="Banner">
                     <div class="text">
                         <p>Здесь можно приобрести часы</p>
                         <h4>от знаменитых</h4>
                         <h4>брендов</h4>
                     </div>
-                </a>
+                </a> {% endcomment %}
             </div>
             <div class="col-md-6">
                 <div class="slider-daily bottom-home1-title bottom-home1 hover-control-wrap">

@@ -30,7 +30,7 @@
     
 </style>
 
-<div class="main-content">
+<div class="main-content    ">
     <div class="container">
         <ul class="breadcrumb">
             <li><a href="{% url 'main:homepage' %}">Главная</a></li>
@@ -60,7 +60,7 @@
                 <div class="product-name space-30">
                     <h1>{{ product.brand.name }}</h1>
                     <h2>{{ product.name }}</h2>
-                    <p class="price">GB333</p>
+                    <p class="price">{{ product.article }}</p>
                 </div>
                 <div class="wrap-price">
                     <p class="price">{{ product.price }} Р.</p>

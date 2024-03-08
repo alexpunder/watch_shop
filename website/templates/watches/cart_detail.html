@@ -48,7 +48,7 @@
                         <td class="description">{{ product.description|truncatewords:20 }}</td>
                         <td class="product-price">{{ product.price }} Р.</td>
                         <td class="product-quantity">{{ item.quantity }}</td>
-                        <td class="total-price">{{ item.total_price }}</td>
+                        <td class="total-price">{{ item.total_price }} Р.</td>
                         <td class="product-remove"><a href="{% url "shop:cart_remove" pk=item.watch.id %}" title="">x</a></td>
                     </tr>
                     {% endwith %}

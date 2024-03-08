@@ -25,7 +25,9 @@ def homepage(request):
     else:
         form = MessageForm()
 
-    products = Watch.objects.filter(is_on_main=True, is_published=True)
+    products = Watch.objects.filter(
+        is_on_main=True, is_published=True, is_available=True
+    )
     cart_product_form = AddToCart()
 
     return render(request, template_name, context={

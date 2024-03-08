@@ -84,7 +84,7 @@
               </ul>
           </div>
       </div>
-      <div class="col-md-12 place-order-now">
+      <div class="col-md-12 place-order-now space-40">
           <a title="Proceed to checkout" href="" class="btn link-button" onclick="submitForm(event)">Разместить заказ</a>
       </div>
   </div>           
@@ -92,8 +92,7 @@
 
 <script>
     function submitForm(event) {
-        event.preventDefault(); // Отменяем действие по умолчанию (переход по ссылке)
-        // При нажатии кнопки "Разместить заказ" автоматически отправляем форму
+        event.preventDefault();
         document.getElementById("checkoutForm").submit();
     }
 </script>

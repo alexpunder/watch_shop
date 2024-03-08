@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="main-content check-confirm"> 
-    <div class="container">
+    <div class="container space-40">
           <div class="checkout-header">
               <ul>
                 <li><span>01</span>Подтверждение заказа</li>
@@ -30,7 +30,7 @@
                       <p><b>Фамилия:</b> {{ order.last_name }}</p>
                       <p><b>Телефон: </b>{{ order.phone_number }}</p>
                       <p><b>Почта:</b> {{ order.email }}</p>
-                      <p><b>Адрес: </b>{{ order.adress }}</p>
+                      <p><b>Адрес: </b>{% if order.adress %}{{ order.adress }}{% else %}Не указан{% endif %}</p>
                   </div>
 
                   <div class="col-md-6 space-30">
