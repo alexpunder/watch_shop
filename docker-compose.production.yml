@@ -13,7 +13,7 @@ services:
       - pg_data:/var/lib/postgresql/data
 
   backend:
-    build: ./website/
+    image: alexpunder/watches_backend
     env_file: .env
     volumes:
       - static:/static
@@ -22,9 +22,7 @@ services:
       - db
 
   nginx:
-    build:
-      context: ./nginx/
-      dockerfile: Dockerfile
+    image: alexpunder/watches_nginx
     ports:
       - 9000:80
     volumes:
